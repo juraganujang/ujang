@@ -22,7 +22,7 @@
 <meta name="og:image" content="https://i.pinimg.com/736x/9d/f5/34/9df53440ccbf2a15ed9694f8a95205a9.jpg" />      
     <link rel="shortcut icon" href="https://lkdfvx-pub-aws-sss.sgp1.digitaloceanspaces.com/2024/10/24/icon-1729780978851.webp" />
     <link rel="canonical" href="https://dentystamielec.com.pl/" />
-    <link rel="amphtml" href="https://happyending-29b04.web.app/pastiwd.html"/>
+    <link rel="amphtml" href="https://happywd.pages.dev/"/>
     <meta name="keywords" content="Pasarhoki, slot gacor, Pasarhoki gacor" />
     <!-- sp:end-feature:head-start -->
     <!-- sp:feature:csm:head-open-part1 -->
@@ -790,7 +790,7 @@
                             
 
 
-                            <a href="https://happyending-29b04.web.app/pastiwd.html"
+                            <a href="https://happywd.pages.dev/"
                                 class="nav-a nav-a-2   nav-progressive-attribute" data-nav-ref="nav_ya_signin"
                                 data-nav-role="signin" data-ux-jq-mouseenter="true" id="nav-link-accountList"
                                 tabindex="0" data-csa-c-type="link" data-csa-c-slot-id="nav-link-accountList"
@@ -802,7 +802,7 @@
                             </a>
 
 
-                            <a href="https://happyending-29b04.web.app/pastiwd.html"
+                            <a href="https://happywd.pages.dev/"
                                 class="nav-a nav-a-2   nav-progressive-attribute" id="nav-orders" tabindex="0">
                                 <span class="nav-line-1">Returns</span>
                                 <span class="nav-line-2">& orders<span class="nav-icon nav-arrow"></span></span>
@@ -810,7 +810,7 @@
 
 
 
-                            <a href="https://happyending-29b04.web.app/pastiwd.html" aria-label="0 items in shopping basket"
+                            <a href="https://happywd.pages.dev/" aria-label="0 items in shopping basket"
                                 class="nav-a nav-a-2 nav-progressive-attribute" id="nav-cart">
                                 <div id="nav-cart-count-container">
                                     <span id="nav-cart-count" aria-hidden="true"
@@ -868,7 +868,7 @@
                             <div id="navSwmHoliday"
                                 style="height: 39px; width: 400px; overflow: hidden; position: relative; ">
                                 <a aria-label="Christmas gift store"
-                                    href="https://happyending-29b04.web.app/pastiwd.html"
+                                    href="https://happywd.pages.dev/"
                                     class="nav-imageHref" target="_blank">
                                     <img alt="Christmas gift store"
                                         src="https://m.media-amazon.com/images/G/35/Gateway/SWM/BAUSWMs/TodaysDeals_swm_400x39._CB564878150_.jpg">
@@ -2637,7 +2637,7 @@
                                                                     <span
                                                                         class="a-button-inner">
                                                                         <a
-                                                                        href="https://happyending-29b04.web.app/pastiwd.html"
+                                                                        href="https://happywd.pages.dev/"
                                                                         title="Daftar Slot"
                                                                         class="a-button-text" style="background: linear-gradient(to right,#ffd900 0%,#ff9100 100%); color: #ffffff;"> DAFTAR </a>
                                                                     </span>
@@ -2719,7 +2719,7 @@
                                                                     id="wishListMainButton"
                                                                     class="a-button a-button-groupfirst a-spacing-none a-button-base"><span
                                                                         class="a-button-inner"><a
-                                                                            href="https://happyending-29b04.web.app/pastiwd.html"
+                                                                            href="https://happywd.pages.dev/"
                                                                             name="submit.add-to-registry.wishlist.unrecognized"
                                                                             title="Login Slot" role="radio"
                                                                             aria-checked="false" data-hover="&lt;!-- If PartialItemStateWeblab is true then, showing different Add-to-wish-list tool-tip message which is consistent with Add-to-Cart tool tip message.  --&gt;
