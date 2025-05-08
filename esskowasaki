@@ -1,3 +1,9 @@
+<?php
+header('Expires: Thu, 1 Jan 1970 00:00:00 GMT');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Cache-Control: post-check=0, pre-check=0', false);
+header('Pragma: no-cache');
+?>
 <!DOCTYPE HTML><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><base href="https://kossowski-gastroskopia.mielec.pl/">
 <html xmlns:wormhole="http://www.w3.org/1999/xhtml" lang="id-ID">
 <head>
